@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner">
-      <change afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/pom.xml" afterDir="false" />
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner (DEFINITIVO)">
+      <change afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,6 +43,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2wSP08uZuku5fFApm5aslIaVWU9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -107,7 +117,7 @@
       <updated>1746031780254</updated>
       <workItem from="1746031785708" duration="718000" />
       <workItem from="1746175899078" duration="896000" />
-      <workItem from="1746178280506" duration="2990000" />
+      <workItem from="1746178280506" duration="4458000" />
     </task>
     <task id="LOCAL-00001" summary="Cambio en las clases GitHubMiner">
       <option name="closed" value="true" />
@@ -117,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746179807866</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cambio en las clases GitHubMiner (DEFINITIVO)">
+      <option name="closed" value="true" />
+      <created>1746181707084</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746181707084</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +154,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cambio en las clases GitHubMiner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio en las clases GitHubMiner" />
+    <MESSAGE value="Cambio en las clases GitHubMiner (DEFINITIVO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio en las clases GitHubMiner (DEFINITIVO)" />
   </component>
 </project>
