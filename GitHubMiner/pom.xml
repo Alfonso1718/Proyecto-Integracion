@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>aiss</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>GitHubMiner</name>
 	<description>Archivo de GitHubMiner</description>
