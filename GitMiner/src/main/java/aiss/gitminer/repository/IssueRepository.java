@@ -1,0 +1,9 @@
+package aiss.gitminer.repository;
+
+import aiss.gitminer.model.Commit;
+import aiss.gitminer.model.Issue;
+import aiss.gitminer.model.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IssueRepository extends JpaRepository<Issue, String> {
+}
