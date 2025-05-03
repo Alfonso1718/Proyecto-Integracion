@@ -30,4 +30,6 @@ public class ProjectController {
         gitMinerClient.enviarDatosAGitMiner(null);
         return ResponseEntity.ok().build();
     }
+
+
 }

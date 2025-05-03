@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner (DEFINITIVO)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/controller/ProjectController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +118,7 @@
       <workItem from="1746031785708" duration="718000" />
       <workItem from="1746175899078" duration="896000" />
       <workItem from="1746178280506" duration="4458000" />
+      <workItem from="1746284140378" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="Cambio en las clases GitHubMiner">
       <option name="closed" value="true" />
