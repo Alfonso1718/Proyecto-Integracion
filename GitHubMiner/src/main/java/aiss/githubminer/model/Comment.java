@@ -1,10 +1,10 @@
 
 package aiss.githubminer.model;
 
-import aiss.gitminer.model.User;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotEmpty;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Comment")
@@ -20,7 +20,7 @@ public class Comment {
 
     @JsonProperty("author")
     @JoinColumn(name = "author_id", referencedColumnName = "id")
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade= CascadeType.ALL)
     private User author;
 
     @JsonProperty("created_at")

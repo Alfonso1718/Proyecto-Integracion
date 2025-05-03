@@ -2,7 +2,7 @@
 package aiss.githubminer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity

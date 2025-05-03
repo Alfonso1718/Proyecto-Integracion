@@ -1,10 +1,10 @@
 
 package aiss.githubminer.model;
 
-import aiss.gitminer.model.Issue;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
