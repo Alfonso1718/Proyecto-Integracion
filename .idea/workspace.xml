@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner (DEFINITIVO)">
-      <change afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/Commit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Issue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/User.java" beforeDir="false" />
-    </list>
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner (DEFINITIVO)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746181707084</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cambio en las clases GitHubMiner (DEFINITIVO)">
+      <option name="closed" value="true" />
+      <created>1746394657095</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746394657095</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
