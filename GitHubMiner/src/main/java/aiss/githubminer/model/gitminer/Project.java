@@ -1,5 +1,5 @@
 
-package aiss.githubminer.model;
+package aiss.githubminer.model.gitminer;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;

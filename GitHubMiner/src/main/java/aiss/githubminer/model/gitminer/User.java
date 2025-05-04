@@ -1,12 +1,12 @@
-
-package aiss.githubminer.model;
+package aiss.githubminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "GHMUser")     // Watch out: User is a reserved keyword in H2
+@Table(name = "GMUser")     // Watch out: User is a reserved keyword in H2
 public class User {
 
     @Id

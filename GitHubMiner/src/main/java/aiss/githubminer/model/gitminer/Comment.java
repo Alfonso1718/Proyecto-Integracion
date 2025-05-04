@@ -1,6 +1,8 @@
 
-package aiss.githubminer.model;
+package aiss.githubminer.model.gitminer;
 
+
+import org.apache.catalina.User;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

@@ -1,9 +1,9 @@
-package aiss.githubminer.model;
+package aiss.githubminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-
 
 @Entity
 @Table(name = "Commit")
@@ -28,8 +28,7 @@ public class Commit {
     private String authoredDate;
 
     @JsonProperty("web_url")
-    @NotEmpty(message = "URL cannot be empty." +
-            "")
+    @NotEmpty(message = "URL cannot be empty.")
     private String webUrl;
 
     public String getId() {

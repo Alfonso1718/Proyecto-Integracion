@@ -1,9 +1,11 @@
 
-package aiss.githubminer.model;
+package aiss.githubminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.util.List;
+
+import org.apache.catalina.User;
 
 @Entity
 @Table(name = "Issue")
