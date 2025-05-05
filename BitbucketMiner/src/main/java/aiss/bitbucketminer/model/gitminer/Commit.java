@@ -1,13 +1,12 @@
-package aiss.gitminer.model;
+<<<<<<<< HEAD:GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java
+package aiss.githubminer.model.gitminer;
+========
+package aiss.bitbucketminer.model.gitminer;
+>>>>>>>> origin/main:BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Commit.java
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Commit")

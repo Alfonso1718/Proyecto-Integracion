@@ -1,14 +1,13 @@
-package aiss.gitminer.model;
+package aiss.bitbucketminer.controller;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+@RestController
+@RequestMapping("/datos")
+public class ProjectController {
 
-@Entity
-@Table(name = "ProjectController")
-public class ProjectController { }
+}
+

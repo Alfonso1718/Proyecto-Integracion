@@ -1,13 +1,10 @@
 
-package aiss.gitminer.model;
+package aiss.bitbucketminer.model.gitminer;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
 
-import javax.annotation.Generated;
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
