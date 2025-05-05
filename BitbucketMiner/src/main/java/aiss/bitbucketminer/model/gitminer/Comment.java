@@ -1,11 +1,11 @@
 
 package aiss.bitbucketminer.model.gitminer;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
-
 import jakarta.validation.constraints.NotEmpty;
+import org.apache.catalina.User;
 
 @Entity
 @Table(name = "Comment")
@@ -21,7 +21,7 @@ public class Comment {
 
     @JsonProperty("author")
     @JoinColumn(name = "author_id", referencedColumnName = "id")
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade= CascadeType.ALL)
     private User author;
 
     @JsonProperty("created_at")

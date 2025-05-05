@@ -3,7 +3,7 @@ package aiss.bitbucketminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import org.apache.catalina.User;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ import java.util.List;
 @Table(name = "Issue")
 public class Issue {
 
-    @jakarta.persistence.Id
     @Id
     @JsonProperty("id")
     private String id;
@@ -204,5 +203,7 @@ public class Issue {
         }
         return sb.toString();
     }
+
+
 
 }

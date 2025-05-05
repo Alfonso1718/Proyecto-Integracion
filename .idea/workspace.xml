@@ -4,12 +4,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner (DEFINITIVO)" />
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en las clases GitHubMiner (DEFINITIVO)">
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Code.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Commit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Content.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Html.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Inline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Links.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Self.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Approve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Avatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Comments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Commit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Diff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Html.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Links.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Parent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Patch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Rendered.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Self.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Statuses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/Summary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Commit/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Assignee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Content.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Issue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Link.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Links.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Milestone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Reporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Version.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Project/Avatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Project/Html.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Project/Links.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Project/Owner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Project/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/User/Avatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucket/Branch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucket/Link.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucket/Links.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucket/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/User/Links.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucket/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucket/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Commit.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Commit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -56,6 +114,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sol/Desktop/Proyecto-Integracion/BitbucketMiner/src/main/java/aiss/bitbucketminer/model",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,11 +126,17 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sol\Desktop\Proyecto-Integracion\BitbucketMiner\src\main\java\aiss\bitbucketminer\model" />
+      <recent name="C:\Users\sol\Desktop\Proyecto-Integracion\BitbucketMiner\src\main\java\aiss\bitbucketminer\service" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sol\Desktop\Proyecto-Integracion\BitbucketMiner\src\main\java\aiss\bitbucketminer\model\gitminer\bitbucketMiner" />
       <recent name="C:\Users\sol\Desktop\Proyecto-Integracion\GitHubMiner\src\main\java\aiss\githubminer\model\gitminer" />
       <recent name="C:\Users\sol\Desktop\Proyecto-Integracion\GitHubMiner\src\main\java\aiss\githubminer\model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="aiss.bitbucketminer.model" />
       <recent name="aiss.bitbucketminer.model.gitminer" />
     </key>
   </component>
