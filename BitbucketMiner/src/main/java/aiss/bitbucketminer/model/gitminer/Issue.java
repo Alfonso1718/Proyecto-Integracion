@@ -11,6 +11,7 @@ import java.util.List;
 @Table(name = "Issue")
 public class Issue {
 
+    @jakarta.persistence.Id
     @Id
     @JsonProperty("id")
     private String id;
@@ -203,7 +204,5 @@ public class Issue {
         }
         return sb.toString();
     }
-
-
 
 }

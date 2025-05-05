@@ -1,8 +1,7 @@
-<<<<<<<< HEAD:GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java
-package aiss.githubminer.model.gitminer;
-========
+
+
 package aiss.bitbucketminer.model.gitminer;
->>>>>>>> origin/main:BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/Commit.java
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
