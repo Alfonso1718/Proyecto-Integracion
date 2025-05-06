@@ -9,34 +9,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Entity
-@Table(name = "Project")
 public class Project {
 
-    @Id
-    @JsonProperty("id")
+
     public String id;
 
-    @JsonProperty("name")
-    @NotEmpty(message = "The name of the project cannot be empty")
+
     public String name;
 
-    @JsonProperty("web_url")
-    @NotEmpty(message = "The URL of the project cannot be empty")
+
     public String webUrl;
-    @JsonProperty("commits")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectId")
+
     private List<Commit> commits;
 
-    @JsonProperty("issues")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectId")
+
     private List<Issue> issues;
 
-    public Project() {
-        commits = new ArrayList<>();
-        issues = new ArrayList<>();
+    public Project(String id, String name, String webUrl) {
+        this.id = id;
+        this.name = name;
+        this.webUrl = webUrl;
+        this.commits = new ArrayList<>();
+        this.issues = new ArrayList<>();
     }
 
     public String getId() {

@@ -1,35 +1,52 @@
 package aiss.githubminer.controller;
 
-import aiss.githubminer.service.GitMinerClient;
+import aiss.githubminer.model.gitminer.Project;
+import aiss.githubminer.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/apipath")
+@RequestMapping("/github")
 public class ProjectController {
 
-    private final GitMinerClient gitMinerClient;
+    @Autowired
+    public ProjectService projectService;
+    
+    @Autowired
+    public RestTemplate restTemplate;
 
-    public ProjectController(GitMinerClient gitMinerClient) {
-        this.gitMinerClient = gitMinerClient;
-    }
+    private final String gitminerUri = "http://localhost:8080/gitminer/projects";
+
 
     @PostMapping("/{owner}/{repoName}")
-    public ResponseEntity<Void> extraerYEnviarProyecto(
+    public Project sendProject(
             @PathVariable String owner,
             @PathVariable String repoName,
-            @RequestParam(defaultValue = "2") int sinceCommits,
-            @RequestParam(defaultValue = "20") int sinceIssues,
-            @RequestParam(defaultValue = "2") int maxPages
-    ) {
-        // Aquí iría la lógica para:
-        // 1. Obtener datos de GitHub
-        // 2. Transformarlos al modelo esperado
-        // 3. Enviarlos a GitMiner
-        gitMinerClient.enviarDatosAGitMiner(null);
-        return ResponseEntity.ok().build();
+            @RequestParam(defaultValue = "5") int sinceCommits,
+            @RequestParam(defaultValue = "30") int sinceIssues,
+            @RequestParam(defaultValue = "2") int maxPages ) {
+
+        Project project = projectService.getProjectToBeSend(owner, repoName, sinceCommits, sinceIssues, maxPages);
+
+        HttpEntity<Project> req = new HttpEntity<>(project);
+        ResponseEntity<Project> res = restTemplate.exchange(gitminerUri, HttpMethod.POST, req, Project.class);
+
+        return res.getBody();
     }
 
+    @GetMapping("/{owner}/{repoName}")
+    public Project getSendProject(
+            @PathVariable String owner,
+            @PathVariable String repoName,
+            @RequestParam(defaultValue = "5") int sinceCommits,
+            @RequestParam(defaultValue = "30") int sinceIssues,
+            @RequestParam(defaultValue = "2") int maxPages ) {
+
+        return projectService.getProjectToBeSend(owner, repoName, sinceCommits, sinceIssues, maxPages);
+    }
 
 }

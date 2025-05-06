@@ -110,9 +110,6 @@ public class ProjectGithubMiner {
     private String fullName;
     @JsonProperty("private")
     private Boolean _private;
-    @JsonProperty("owner")
-    @Valid
-    private Owner owner;
     @JsonProperty("html_url")
     private String htmlUrl;
     @JsonProperty("description")
@@ -167,16 +164,6 @@ public class ProjectGithubMiner {
     @JsonProperty("private")
     public void setPrivate(Boolean _private) {
         this._private = _private;
-    }
-
-    @JsonProperty("owner")
-    public Owner getOwner() {
-        return owner;
-    }
-
-    @JsonProperty("owner")
-    public void setOwner(Owner owner) {
-        this.owner = owner;
     }
 
     @JsonProperty("html_url")
