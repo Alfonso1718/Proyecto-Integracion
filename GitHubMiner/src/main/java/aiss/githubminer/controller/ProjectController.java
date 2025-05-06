@@ -26,8 +26,8 @@ public class ProjectController {
     public Project sendProject(
             @PathVariable String owner,
             @PathVariable String repoName,
-            @RequestParam(defaultValue = "5") int sinceCommits,
-            @RequestParam(defaultValue = "30") int sinceIssues,
+            @RequestParam(defaultValue = "2") int sinceCommits,
+            @RequestParam(defaultValue = "20") int sinceIssues,
             @RequestParam(defaultValue = "2") int maxPages ) {
 
         Project project = projectService.getProjectToBeSend(owner, repoName, sinceCommits, sinceIssues, maxPages);
@@ -42,8 +42,8 @@ public class ProjectController {
     public Project getSendProject(
             @PathVariable String owner,
             @PathVariable String repoName,
-            @RequestParam(defaultValue = "5") int sinceCommits,
-            @RequestParam(defaultValue = "30") int sinceIssues,
+            @RequestParam(defaultValue = "2") int sinceCommits,
+            @RequestParam(defaultValue = "20") int sinceIssues,
             @RequestParam(defaultValue = "2") int maxPages ) {
 
         return projectService.getProjectToBeSend(owner, repoName, sinceCommits, sinceIssues, maxPages);

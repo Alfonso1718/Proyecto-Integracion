@@ -5,47 +5,46 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.util.List;
 
-import org.apache.catalina.User;
 
-@Entity
-@Table(name = "Issue")
+
 public class Issue {
 
-    @Id
-    @JsonProperty("id")
+
     private String id;
-    @JsonProperty("title")
+
     private String title;
-    @JsonProperty("description")
-    @Column(columnDefinition="TEXT")
+
     private String description;
-    @JsonProperty("state")
+
     private String state;
 
-    @JsonProperty("created_at")
+
     private String createdAt;
-    @JsonProperty("updated_at")
+
     private String updatedAt;
-    @JsonProperty("closed_at")
+
     private String closedAt;
-    @JsonProperty("labels")
-    @ElementCollection
+
     private List<String> labels;
-    @JsonProperty("author")
-    //@NotEmpty(message = "The author of the issue cannot be empty")
-    @JoinColumn(name = "author_id",referencedColumnName = "id")
-    @OneToOne(cascade=CascadeType.ALL)
+
+
     private User author;
-    @JsonProperty("assignee")
-    @JoinColumn(name = "assignee_id",referencedColumnName = "id")
-    @OneToOne(cascade=CascadeType.ALL)
+
+
     private User assignee;
-    @JsonProperty("votes")
+
+
     private Integer votes;
-    @JsonProperty("comments")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "issueId")
+
+
     private List<Comment> comments;
+
+    public Issue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<String> labels,
+                 User author, User assignee, Integer votes, List<Comment> comments) {
+
+    }
+
+
 
     public String getId() {
         return id;

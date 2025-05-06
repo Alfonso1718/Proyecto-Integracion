@@ -19,7 +19,7 @@ public class ProjectService {
     @Autowired
     public IssueService issueService;
 
-    private final String uri = "https://api.github.com/repos/";
+    public final String uri = "https://api.github.com/repos/";
 
     public Project getProject(String owner, String repo) {
 

@@ -5,21 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "GHMUser")     // Watch out: User is a reserved keyword in H2
 public class User {
 
-    @Id
-    @JsonProperty("id")
+
     private String id;
-    @JsonProperty("username")
-    @NotEmpty(message = "The username cannot be empty")
+
     private String username;
-    @JsonProperty("name")
+
     private String name;
-    @JsonProperty("avatar_url")
+
     private String avatarUrl;
-    @JsonProperty("web_url")
+
     private String webUrl;
 
     public String getId() {

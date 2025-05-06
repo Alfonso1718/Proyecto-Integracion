@@ -8,7 +8,6 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.*;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.DecimalMin;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -60,10 +59,7 @@ public class IssuesGithubMiner {
     @JsonProperty("html_url")
     private String htmlUrl;
     @JsonProperty("id")
-    @DecimalMin("9223372036854775807")
-    private Long id;
-    @JsonProperty("node_id")
-    private String nodeId;
+    private Integer id;
     @JsonProperty("number")
     private Integer number;
     @JsonProperty("title")
@@ -79,7 +75,7 @@ public class IssuesGithubMiner {
     @JsonProperty("locked")
     private Boolean locked;
     @JsonProperty("assignee")
-    private Object assignee;
+    private AuthorIssue assignee;
     @JsonProperty("assignees")
     @Valid
     private List<Object> assignees;
@@ -175,24 +171,10 @@ public class IssuesGithubMiner {
     }
 
     @JsonProperty("id")
-    public Long getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
     @JsonProperty("id")
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @JsonProperty("node_id")
-    public String getNodeId() {
-        return nodeId;
-    }
-
-    @JsonProperty("node_id")
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
+    public void setId(Integer id) { this.id = id; }
 
     @JsonProperty("number")
     public Integer getNumber() {
@@ -255,12 +237,12 @@ public class IssuesGithubMiner {
     }
 
     @JsonProperty("assignee")
-    public Object getAssignee() {
+    public AuthorIssue getAssignee() {
         return assignee;
     }
 
     @JsonProperty("assignee")
-    public void setAssignee(Object assignee) {
+    public void setAssignee(AuthorIssue assignee) {
         this.assignee = assignee;
     }
 
