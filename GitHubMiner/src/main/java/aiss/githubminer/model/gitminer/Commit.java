@@ -9,6 +9,11 @@ import jakarta.validation.constraints.NotEmpty;
 @Table(name = "Commit")
 public class Commit {
 
+    public Commit(String id, String title, String message,
+                  String author_name, String author_email, String authored_date,
+                  String web_url) {
+    }
+
     @Id
     @JsonProperty("id")
     private String id;
@@ -28,9 +33,12 @@ public class Commit {
     private String authoredDate;
 
     @JsonProperty("web_url")
-    @NotEmpty(message = "URL cannot be empty." +
-            "")
+    @NotEmpty(message = "URL cannot be empty.")
     private String webUrl;
+
+    public Commit() {
+
+    }
 
     public String getId() {
         return id;

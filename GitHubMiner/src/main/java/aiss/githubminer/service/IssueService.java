@@ -56,7 +56,7 @@ public class IssueService {
 
         return issuesToBeMapped.stream()
                 .map(this::mapIssue)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public Issue mapIssue(IssuesGithubMiner githubIssue) {
@@ -70,5 +70,9 @@ public class IssueService {
         );
         issue.setComments(commentService.getCommentsFromIssue(githubIssue.getNumber()));
         return issue;
+    }
+
+    public Integer getIssueId(IssuesGithubMiner githubIssue) {
+        return Integer.parseInt(githubIssue.getId().toString());
     }
 }
