@@ -1,9 +1,6 @@
 
 package aiss.githubminer.model.githubMiner.commits;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.*;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
@@ -20,7 +17,7 @@ import jakarta.validation.Valid;
 })
 @Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Commit {
+public class CommitFromGithub {
 
     @JsonProperty("author")
     @Valid

@@ -60,13 +60,13 @@ public class CommitService {
 
     public Commit mapCommit(CommitsGithubMiner githubCommit) {
         Commit commit = new Commit(
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit
+                githubCommit.getNodeId(),
+                githubCommit.getCommit().getMessage(),
+                githubCommit.getCommit().getMessage(),
+                githubCommit.getCommit().getAuthor().getName(),
+                githubCommit.getCommit().getAuthor().getEmail(),
+                githubCommit.getCommit().getAuthor().getDate(),
+                githubCommit.getUrl()
         );
         return commit;
     }
