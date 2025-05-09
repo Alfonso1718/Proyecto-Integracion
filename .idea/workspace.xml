@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Avanzo en CommentService y CommitService">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/IssueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/IssueService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +29,12 @@
     &quot;assignee&quot;: &quot;Alfonso1718&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Alfonso1718/Proyecto-Integracion.git",
-    "accountId": "ecadcc17-7d6f-49a9-a7e1-a85f561681e3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Alfonso1718/Proyecto-Integracion.git&quot;,
+    &quot;accountId&quot;: &quot;ecadcc17-7d6f-49a9-a7e1-a85f561681e3&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
