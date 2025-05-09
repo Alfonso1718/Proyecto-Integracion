@@ -49,7 +49,7 @@ public class IssueService {
 
             githubIssues = res.getBody();
             if (githubIssues == null || githubIssues.length == 0) {
-                break; // Se coloca el break por si no hay mas resultados no sigue irerando
+                break; // Se coloca el break por si no hay mas resultados que no siga irerando
             }
 
             issuesToBeMapped.addAll(Arrays.asList(githubIssues));
@@ -63,12 +63,18 @@ public class IssueService {
     public Issue mapIssue(IssuesGithubMiner githubIssue) {
 
         Issue issue = new Issue(
-            githubIssue.getId().toString(), githubIssue.getTitle(), githubIssue.getBody(),
-            githubIssue.getState(), githubIssue.getCreatedAt(), githubIssue.getUpdatedAt(),
+            githubIssue.getId().toString(),
+            githubIssue.getTitle(),
+            githubIssue.getBody(),
+            githubIssue.getState(),
+            githubIssue.getCreatedAt(),
+            githubIssue.getUpdatedAt(),
             githubIssue.getClosedAt().toString(),
             githubIssue.getLabels().stream().map(x -> x.toString()).toList(),
-            userService.parseUser(githubIssue.getUser()), userService.parseUser(githubIssue.getAssignee()),
-            githubIssue.getReactions().getTotalCount(), null
+            userService.parseUser(githubIssue.getUser()),
+            userService.parseUser(githubIssue.getAssignee()),
+            githubIssue.getReactions().getTotalCount(),
+            null
         );
         issue.setComments(commentService.getCommentsFromIssue(githubIssue.getNumber()));
         return issue;
