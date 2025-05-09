@@ -2,7 +2,6 @@ package aiss.githubminer.service;
 
 import aiss.githubminer.model.githubMiner.issues.IssuesGithubMiner;
 import aiss.githubminer.model.gitminer.Issue;
-import aiss.githubminer.model.gitminer.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class IssueService {

@@ -1,9 +1,6 @@
 
 package aiss.githubminer.model.gitminer;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +27,10 @@ public class Issue {
     private List<String> labels;
 
 
-    private User author;
+    private UserGitMiner author;
 
 
-    private User assignee;
+    private UserGitMiner assignee;
 
 
     private Integer votes;
@@ -42,7 +39,7 @@ public class Issue {
     private List<Comment> comments;
 
     public Issue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<String> labels,
-                 User author, User assignee, Integer votes, List<Comment> comments) {
+                 UserGitMiner author, UserGitMiner assignee, Integer votes, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -123,19 +120,19 @@ public class Issue {
         this.labels = labels;
     }
 
-    public User getAuthor() {
+    public UserGitMiner getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(UserGitMiner author) {
         this.author = author;
     }
 
-    public User getAssignee() {
+    public UserGitMiner getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(User assignee) {
+    public void setAssignee(UserGitMiner assignee) {
         this.assignee = assignee;
     }
 

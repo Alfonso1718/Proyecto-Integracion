@@ -8,28 +8,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "Comment")
+
 public class Comment {
 
-    @Id
-    @JsonProperty("id")
+
     private String id;
-    @JsonProperty("body")
-    @NotEmpty(message = "The message cannot be empty.")
-    @Column(columnDefinition="TEXT")
     private String body;
-
-    @JsonProperty("author")
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
-    @OneToOne(cascade= CascadeType.ALL)
-    private User author;
-
-    @JsonProperty("created_at")
-    @NotEmpty(message = "The field created_at cannot be empty.")
+    private UserGitMiner author;
     private String createdAt;
-    @JsonProperty("updated_at")
     private String updatedAt;
+
+    public Comment(String id, String body, UserGitMiner author, String createdAt, String updatedAt) {
+        this.id = id;
+        this.body = body;
+        this.author = author;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
     public String getId() {
         return id;

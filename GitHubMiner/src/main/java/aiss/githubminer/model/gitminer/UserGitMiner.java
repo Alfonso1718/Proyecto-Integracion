@@ -1,11 +1,7 @@
 
 package aiss.githubminer.model.gitminer;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-
-public class User {
+public class UserGitMiner {
 
 
     private String id;
@@ -18,7 +14,7 @@ public class User {
 
     private String webUrl;
 
-    public User(String id, String login, String name, String avatarUrl, String url) {
+    public UserGitMiner(String id, String login, String name, String avatarUrl, String url) {
         this.id = id;
         this.username = login;
         this.name = name;
@@ -69,7 +65,7 @@ public class User {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(User.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(UserGitMiner.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));

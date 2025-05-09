@@ -46,7 +46,7 @@ import jakarta.validation.Valid;
 })
 @Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserIssueGithubMiner {
+public class UserAuthorGithubMiner {
 
     @JsonProperty("login")
     private String login;
