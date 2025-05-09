@@ -3,11 +3,16 @@ package aiss.githubminer.service;
 import aiss.githubminer.model.githubMiner.comments.CommentsGithubMiner;
 import aiss.githubminer.model.gitminer.Comment;
 import aiss.githubminer.model.gitminer.Issue;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +29,16 @@ public class CommentService {
 
         String baseUri = uri + issueId + "/comments";
 
-        CommentsGithubMiner commentsGithubMiner = restTemplate.getForObject(baseUri, CommentsGithubMiner.class);
+        List<Comment> commentsToBeMapped = new ArrayList<>();
+
+        ResponseEntity<CommentsGithubMiner[]> commentsGithubMiner = restTemplate.exchange(
+                baseUri,
+                HttpMethod.GET,
+                null,
+                CommentsGithubMiner[].class);
+
+        CommentsGithubMiner[] res = commentsGithubMiner.getBody();
+        // TODO ACABAR
 
         // TODO
         // Tiene que recuperar la lista de comments (cambiar casi todo el metodo)

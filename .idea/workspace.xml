@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Avanzo en CommentService y CommitService">
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Cambio en CommentService PARA DAROS UNA IDEA">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746739558170</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cambio en CommentService PARA DAROS UNA IDEA">
+      <option name="closed" value="true" />
+      <created>1746818658103</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746818658103</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +202,7 @@
     <MESSAGE value="Cambio en las clases GitHubMiner" />
     <MESSAGE value="Cambio en las clases GitHubMiner (DEFINITIVO)" />
     <MESSAGE value="Avanzo en CommentService y CommitService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avanzo en CommentService y CommitService" />
+    <MESSAGE value="Cambio en CommentService PARA DAROS UNA IDEA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio en CommentService PARA DAROS UNA IDEA" />
   </component>
 </project>
