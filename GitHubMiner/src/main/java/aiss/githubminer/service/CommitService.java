@@ -59,15 +59,19 @@ public class CommitService {
     }
 
     public Commit mapCommit(CommitsGithubMiner githubCommit) {
+
+        String[] mensaje = githubCommit.getCommit().getMessage().split("\n\n");
+
         Commit commit = new Commit(
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit,
-                githubCommit
+                githubCommit.getNodeId().toString(),
+                mensaje[0].strip().toString(),
+                mensaje[1].strip().toString(),
+                githubCommit.getCommit().getAuthor().getName(),
+                githubCommit.getCommit().getAuthor().getEmail(),
+                githubCommit.getCommit().getAuthor().getDate(),
+                githubCommit.getUrl()
         );
+
         return commit;
     }
 }

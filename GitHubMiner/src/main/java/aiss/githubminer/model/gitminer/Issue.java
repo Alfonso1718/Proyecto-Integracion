@@ -3,6 +3,8 @@ package aiss.githubminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -41,7 +43,18 @@ public class Issue {
 
     public Issue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<String> labels,
                  User author, User assignee, Integer votes, List<Comment> comments) {
-
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.closedAt = closedAt;
+        this.labels = new ArrayList<>(labels);
+        this.author = author;
+        this.assignee = assignee;
+        this.votes = votes;
+        this.comments = new ArrayList<>(comments);
     }
 
 

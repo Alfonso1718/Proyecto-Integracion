@@ -2,6 +2,7 @@ package aiss.githubminer.service;
 
 import aiss.githubminer.model.githubMiner.issues.IssuesGithubMiner;
 import aiss.githubminer.model.gitminer.Issue;
+import aiss.githubminer.model.gitminer.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -60,8 +61,9 @@ public class IssueService {
     }
 
     public Issue mapIssue(IssuesGithubMiner githubIssue) {
+
         Issue issue = new Issue(
-            githubIssue.getId().toString(), githubIssue.getTitle(), githubIssue.getTitle(), // Parseo para descripcion,
+            githubIssue.getId().toString(), githubIssue.getTitle(), githubIssue.getBody(),
             githubIssue.getState(), githubIssue.getCreatedAt(), githubIssue.getUpdatedAt(),
             githubIssue.getClosedAt().toString(),
             githubIssue.getLabels().stream().map(x -> x.toString()).toList(),
@@ -72,7 +74,4 @@ public class IssueService {
         return issue;
     }
 
-    public Integer getIssueId(IssuesGithubMiner githubIssue) {
-        return Integer.parseInt(githubIssue.getId().toString());
-    }
 }
