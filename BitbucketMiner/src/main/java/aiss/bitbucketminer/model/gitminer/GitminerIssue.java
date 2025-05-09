@@ -1,15 +1,14 @@
 
 package aiss.bitbucketminer.model.gitminer;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.apache.catalina.User;
 
 import java.util.List;
-
-@Entity
-@Table(name = "Issue")
-public class Issue {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class GitminerIssue {
 
     @Id
     @JsonProperty("id")
@@ -45,7 +44,7 @@ public class Issue {
     @JsonProperty("comments")
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "issueId")
-    private List<Comment> comments;
+    private List<GitminerComment> comments;
 
     public String getId() {
         return id;
@@ -135,18 +134,18 @@ public class Issue {
         this.votes = votes;
     }
 
-    public List<Comment> getComments() {
+    public List<GitminerComment> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<GitminerComment> comments) {
         this.comments = comments;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Issue.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(GitminerIssue.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null) ? "<null>" : this.id));

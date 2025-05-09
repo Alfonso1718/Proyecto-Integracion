@@ -1,7 +1,7 @@
 
 package aiss.bitbucketminer.model.bitbucketMiner.Commit;
 
-import aiss.githubminer.model.gitminer.Commit.Html;
+import aiss.bitbucketminer.model.bitbucketMiner.Commit.Html;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

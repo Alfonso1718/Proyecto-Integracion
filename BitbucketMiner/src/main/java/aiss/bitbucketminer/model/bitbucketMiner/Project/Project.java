@@ -1,8 +1,6 @@
 
 package aiss.bitbucketminer.model.bitbucketMiner.Project;
 
-import aiss.githubminer.model.gitminer.Project.Links;
-import aiss.githubminer.model.gitminer.Project.Owner;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

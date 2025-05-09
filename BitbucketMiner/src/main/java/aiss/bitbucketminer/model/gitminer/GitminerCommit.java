@@ -10,7 +10,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Commit")
-public class Commit {
+public class GitminerCommit {
 
     @Id
     @JsonProperty("id")
@@ -94,7 +94,7 @@ public class Commit {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Commit.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(GitminerCommit.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null) ? "<null>" : this.id));

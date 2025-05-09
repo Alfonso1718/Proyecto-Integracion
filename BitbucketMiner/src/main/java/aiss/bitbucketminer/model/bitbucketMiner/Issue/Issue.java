@@ -1,10 +1,6 @@
 
 package aiss.bitbucketminer.model.bitbucketMiner.Issue;
 
-import aiss.githubminer.model.gitminer.Issue.Assignee;
-import aiss.githubminer.model.gitminer.Issue.Links;
-import aiss.githubminer.model.gitminer.Issue.Reporter;
-import aiss.githubminer.model.gitminer.Issue.Version;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

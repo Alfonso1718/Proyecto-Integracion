@@ -9,7 +9,7 @@ import org.apache.catalina.User;
 
 @Entity
 @Table(name = "Comment")
-public class Comment {
+public class GitminerComment {
 
     @Id
     @JsonProperty("id")
@@ -73,7 +73,7 @@ public class Comment {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Comment.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(GitminerComment.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null) ? "<null>" : this.id));

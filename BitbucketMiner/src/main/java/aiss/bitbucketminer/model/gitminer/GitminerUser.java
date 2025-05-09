@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "GHMUser")     // Watch out: User is a reserved keyword in H2
-public class User {
+public class GitminerUser {
 
     @Id
     @JsonProperty("id")
@@ -67,7 +67,7 @@ public class User {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(User.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(GitminerUser.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));

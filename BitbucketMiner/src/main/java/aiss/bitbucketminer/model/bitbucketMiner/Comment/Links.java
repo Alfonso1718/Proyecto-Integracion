@@ -1,7 +1,7 @@
 
 package aiss.bitbucketminer.model.bitbucketMiner.Comment;
 
-import aiss.githubminer.model.gitminer.Commit.Self;
+import aiss.bitbucketminer.model.bitbucketMiner.Issue.Link;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,39 +9,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Links {
 
     @JsonProperty("self")
-    private Self self;
+    private Link self;
     @JsonProperty("html")
-    private Html html;
+    private Link html;
     @JsonProperty("code")
-    private Code code;
+    private Link code;
 
     @JsonProperty("self")
-    public Self getSelf() {
+    public Link getSelf() {
         return self;
     }
 
     @JsonProperty("self")
-    public void setSelf(Self self) {
+    public void setSelf(Link self) {
         this.self = self;
     }
 
     @JsonProperty("html")
-    public Html getHtml() {
+    public Link getHtml() {
         return html;
     }
 
     @JsonProperty("html")
-    public void setHtml(Html html) {
+    public void setHtml(Link html) {
         this.html = html;
     }
 
     @JsonProperty("code")
-    public Code getCode() {
+    public Link getCode() {
         return code;
     }
 
     @JsonProperty("code")
-    public void setCode(Code code) {
+    public void setCode(Link code) {
         this.code = code;
     }
 

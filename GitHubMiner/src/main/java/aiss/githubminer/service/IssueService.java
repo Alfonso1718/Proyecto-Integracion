@@ -28,7 +28,7 @@ public class IssueService {
     public List<Issue> getIssuesFromProject(String owner, String repo, int sinceIssues, int maxPages) {
 
         LocalDate date = LocalDate.now().minusDays(sinceIssues);
-        int size = 30;
+        int size = 20;
         List<IssuesGithubMiner> issuesToBeMapped = new ArrayList<>();
 
         IssuesGithubMiner[] githubIssues = null;

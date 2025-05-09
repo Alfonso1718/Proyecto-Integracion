@@ -8,35 +8,24 @@ import jakarta.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
+public class GitminerProject {
 
-@Entity
-@Table(name = "Project")
-public class Project {
-
-    @Id
-    @JsonProperty("id")
     public String id;
 
-    @JsonProperty("name")
-    @NotEmpty(message = "The name of the project cannot be empty")
     public String name;
 
-    @JsonProperty("web_url")
-    @NotEmpty(message = "The URL of the project cannot be empty")
     public String webUrl;
-    @JsonProperty("commits")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectId")
-    private List<Commit> commits;
 
-    @JsonProperty("issues")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectId")
-    private List<Issue> issues;
+    private List<GitminerCommit> commits;
 
-    public Project() {
-        commits = new ArrayList<>();
-        issues = new ArrayList<>();
+    private List<GitminerIssue> issues;
+
+    public GitminerProject(String id, String name, String webUrl) {
+        this.id = id;
+        this.name = name;
+        this.webUrl = webUrl;
+        this.commits = new ArrayList<>();
+        this.issues = new ArrayList<>();
     }
 
     public String getId() {
@@ -63,26 +52,26 @@ public class Project {
         this.webUrl = webUrl;
     }
 
-    public List<Commit> getCommits() {
+    public List<GitminerCommit> getCommits() {
         return commits;
     }
 
-    public void setCommits(List<Commit> commits) {
+    public void setCommits(List<GitminerCommit> commits) {
         this.commits = commits;
     }
 
-    public List<Issue> getIssues() {
+    public List<GitminerIssue> getIssues() {
         return issues;
     }
 
-    public void setIssues(List<Issue> issues) {
+    public void setIssues(List<GitminerIssue> issues) {
         this.issues = issues;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Project.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(GitminerProject.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));
