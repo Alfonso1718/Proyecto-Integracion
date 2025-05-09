@@ -1,10 +1,6 @@
 
 package aiss.githubminer.model.githubMiner.commits;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.*;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
@@ -22,7 +18,7 @@ public class CommitsGithubMiner {
     private String nodeId;
     @JsonProperty("commit")
     @Valid
-    private Commit commit;
+    private CommitFromGithub commitFromGithub;
     @JsonProperty("url")
     private String url;
 
@@ -48,13 +44,13 @@ public class CommitsGithubMiner {
     }
 
     @JsonProperty("commit")
-    public Commit getCommit() {
-        return commit;
+    public CommitFromGithub getCommit() {
+        return commitFromGithub;
     }
 
     @JsonProperty("commit")
-    public void setCommit(Commit commit) {
-        this.commit = commit;
+    public void setCommit(CommitFromGithub commitFromGithub) {
+        this.commitFromGithub = commitFromGithub;
     }
 
     @JsonProperty("url")
