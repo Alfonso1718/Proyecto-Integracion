@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/bitbucketminer")
+@RequestMapping("/bitbucket")
 public class BitbucketController {
 
     @Autowired
@@ -49,7 +49,7 @@ public class BitbucketController {
 
         // HEADERS, TOKEN
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer" + token);
+        headers.set("Authorization", "Bearer " + token);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<?> req = new HttpEntity<>(bitbucketProject, headers);
