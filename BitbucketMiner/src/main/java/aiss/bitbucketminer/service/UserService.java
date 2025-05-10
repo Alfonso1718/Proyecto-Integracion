@@ -19,7 +19,7 @@ public class UserService {
     @Autowired
     RestTemplate restTemplate;
 
-    @Value("${github.token}")
+    @Value("bitbucket.token")
     private String token;
 
     private final String uri = "https://api.bitbucket.org/2.0/users/";
