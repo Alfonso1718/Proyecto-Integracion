@@ -2,28 +2,21 @@
 package aiss.githubminer.model.gitminer;
 
 
-import org.apache.catalina.User;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-
-
 public class Comment {
 
 
     private String id;
     private String body;
     private UserGitMiner author;
-    private String createdAt;
-    private String updatedAt;
+    private String created_at;
+    private String updated_at;
 
-    public Comment(String id, String body, UserGitMiner author, String createdAt, String updatedAt) {
+    public Comment(String id, String body, UserGitMiner author, String created_at, String updated_at) {
         this.id = id;
         this.body = body;
         this.author = author;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
     public String getId() {
@@ -50,20 +43,20 @@ public class Comment {
         this.author = author;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
-    public String getUpdatedAt() {
-        return updatedAt;
+    public String getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 
     @Override
@@ -84,11 +77,11 @@ public class Comment {
         sb.append(',');
         sb.append("createdAt");
         sb.append('=');
-        sb.append(((this.createdAt == null) ? "<null>" : this.createdAt));
+        sb.append(((this.created_at == null) ? "<null>" : this.created_at));
         sb.append(',');
         sb.append("updatedAt");
         sb.append('=');
-        sb.append(((this.updatedAt == null) ? "<null>" : this.updatedAt));
+        sb.append(((this.updated_at == null) ? "<null>" : this.updated_at));
         sb.append(',');
         if (sb.charAt((sb.length() - 1)) == ',') {
             sb.setCharAt((sb.length() - 1), ']');

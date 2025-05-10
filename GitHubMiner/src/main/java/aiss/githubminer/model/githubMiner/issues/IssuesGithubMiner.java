@@ -25,7 +25,7 @@ public class IssuesGithubMiner {
     @JsonProperty("html_url")
     private String htmlUrl;
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("number")
     private Integer number;
     @JsonProperty("title")
@@ -137,10 +137,10 @@ public class IssuesGithubMiner {
     }
 
     @JsonProperty("id")
-    public Integer getId() { return id; }
+    public Long getId() { return id; }
 
     @JsonProperty("id")
-    public void setId(Integer id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     @JsonProperty("number")
     public Integer getNumber() {

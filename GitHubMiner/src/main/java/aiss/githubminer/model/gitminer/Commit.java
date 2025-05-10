@@ -12,10 +12,10 @@ public class Commit {
         this.id = id;
         this.title = title;
         this.message = message;
-        this.authorName = author_name;
-        this.authorEmail = author_email;
-        this.authoredDate = authored_date;
-        this.webUrl = web_url;
+        this.author_name = author_name;
+        this.author_email = author_email;
+        this.authored_date = authored_date;
+        this.web_url = web_url;
     }
 
     @Id
@@ -29,16 +29,16 @@ public class Commit {
     private String message;
     @JsonProperty("author_name")
     @NotEmpty(message = "Author name cannot be empty.")
-    private String authorName;
+    private String author_name;
     @JsonProperty("author_email")
-    private String authorEmail;
+    private String author_email;
     @JsonProperty("authored_date")
     @NotEmpty(message = "Author date cannot be empty.")
-    private String authoredDate;
+    private String authored_date;
 
     @JsonProperty("web_url")
     @NotEmpty(message = "URL cannot be empty.")
-    private String webUrl;
+    private String web_url;
 
     public Commit() {
 
@@ -68,36 +68,36 @@ public class Commit {
         this.message = message;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getAuthor_name() {
+        return author_name;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setAuthor_name(String author_name) {
+        this.author_name = author_name;
     }
 
-    public String getAuthorEmail() {
-        return authorEmail;
+    public String getAuthor_email() {
+        return author_email;
     }
 
-    public void setAuthorEmail(String authorEmail) {
-        this.authorEmail = authorEmail;
+    public void setAuthor_email(String author_email) {
+        this.author_email = author_email;
     }
 
-    public String getAuthoredDate() {
-        return authoredDate;
+    public String getAuthored_date() {
+        return authored_date;
     }
 
-    public void setAuthoredDate(String authoredDate) {
-        this.authoredDate = authoredDate;
+    public void setAuthored_date(String authored_date) {
+        this.authored_date = authored_date;
     }
 
-    public String getWebUrl() {
-        return webUrl;
+    public String getWeb_url() {
+        return web_url;
     }
 
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
+    public void setWeb_url(String web_url) {
+        this.web_url = web_url;
     }
 
     @Override
@@ -118,19 +118,19 @@ public class Commit {
         sb.append(',');
         sb.append("authorName");
         sb.append('=');
-        sb.append(((this.authorName == null) ? "<null>" : this.authorName));
+        sb.append(((this.author_name == null) ? "<null>" : this.author_name));
         sb.append(',');
         sb.append("authorEmail");
         sb.append('=');
-        sb.append(((this.authorEmail == null) ? "<null>" : this.authorEmail));
+        sb.append(((this.author_email == null) ? "<null>" : this.author_email));
         sb.append(',');
         sb.append("authoredDate");
         sb.append('=');
-        sb.append(((this.authoredDate == null) ? "<null>" : this.authoredDate));
+        sb.append(((this.authored_date == null) ? "<null>" : this.authored_date));
         sb.append(',');
         sb.append("webUrl");
         sb.append('=');
-        sb.append(((this.webUrl == null) ? "<null>" : this.webUrl));
+        sb.append(((this.web_url == null) ? "<null>" : this.web_url));
         sb.append(',');
         if (sb.charAt((sb.length() - 1)) == ',') {
             sb.setCharAt((sb.length() - 1), ']');

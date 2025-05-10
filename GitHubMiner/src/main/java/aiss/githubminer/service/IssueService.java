@@ -3,6 +3,9 @@ package aiss.githubminer.service;
 import aiss.githubminer.model.githubMiner.issues.IssuesGithubMiner;
 import aiss.githubminer.model.gitminer.Issue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,6 +27,10 @@ public class IssueService {
     UserService userService;
 
     private final String uri = "https://api.github.com/repos/";
+    @Value("${github.token}")
+    private String token;
+
+
 
     public List<Issue> getIssuesFromProject(String owner, String repo, int sinceIssues, int maxPages) {
 
@@ -38,10 +45,16 @@ public class IssueService {
                     + "&page=" + i
                     + "&per_page=" + size;
 
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Authorization", "Bearer " + token);
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+
+
             ResponseEntity<IssuesGithubMiner[]> res = restTemplate.exchange(
                     issueUri,
                     HttpMethod.GET,
-                    null,
+                    entity,
                     IssuesGithubMiner[].class
             );
 
@@ -60,6 +73,14 @@ public class IssueService {
 
     public Issue mapIssue(String owner, String repo, IssuesGithubMiner githubIssue) {
 
+        List<String> labels = (githubIssue.getLabels() != null)
+                ? githubIssue.getLabels().stream().map(Object::toString).map(s -> s.substring(0,30)).toList()
+                : new ArrayList<>();
+
+
+
+
+
         Issue issue = new Issue(
             githubIssue.getId().toString(),
             githubIssue.getTitle(),
@@ -67,13 +88,19 @@ public class IssueService {
             githubIssue.getState(),
             githubIssue.getCreatedAt(),
             githubIssue.getUpdatedAt(),
-            githubIssue.getClosedAt().toString(),
-            githubIssue.getLabels().stream().map(x -> x.toString()).toList(),
+                githubIssue.getClosedAt() != null ? githubIssue.getClosedAt().toString() : null,
+                labels,
             userService.parseUser(githubIssue.getUser()),
             userService.parseUser(githubIssue.getAssignee()),
             githubIssue.getReactions().getTotalCount(),
             null);
-        issue.setComments(commentService.getCommentsFromIssue(owner,repo,githubIssue.getNumber()));
+        issue.setComments(
+                commentService.getCommentsFromIssue(owner, repo, githubIssue.getNumber()) != null
+                        ? commentService.getCommentsFromIssue(owner, repo, githubIssue.getNumber())
+                        : new ArrayList<>()
+
+        );
+
 
         return issue;
     }

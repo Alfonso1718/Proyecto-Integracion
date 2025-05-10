@@ -18,11 +18,11 @@ public class Issue {
     private String state;
 
 
-    private String createdAt;
+    private String created_at;
 
-    private String updatedAt;
+    private String updated_at;
 
-    private String closedAt;
+    private String closed_at;
 
     private List<String> labels;
 
@@ -38,20 +38,21 @@ public class Issue {
 
     private List<Comment> comments;
 
-    public Issue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<String> labels,
+    public Issue(String id, String title, String description, String state, String created_at, String updated_at, String closed_at, List<String> labels,
                  UserGitMiner author, UserGitMiner assignee, Integer votes, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.state = state;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.closedAt = closedAt;
-        this.labels = new ArrayList<>(labels);
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+        this.closed_at = closed_at;
+        this.labels = labels != null ? new ArrayList<>(labels) : new ArrayList<>();
         this.author = author;
         this.assignee = assignee;
         this.votes = votes;
-        this.comments = new ArrayList<>(comments);
+        this.comments = (comments != null) ? new ArrayList<>(comments) : new ArrayList<>();
+
     }
 
 
@@ -88,28 +89,28 @@ public class Issue {
         this.state = state;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
-    public String getUpdatedAt() {
-        return updatedAt;
+    public String getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 
-    public String getClosedAt() {
-        return closedAt;
+    public String getClosed_at() {
+        return closed_at;
     }
 
-    public void setClosedAt(String closedAt) {
-        this.closedAt = closedAt;
+    public void setClosed_at(String closed_at) {
+        this.closed_at = closed_at;
     }
 
     public List<String> getLabels() {
@@ -174,15 +175,15 @@ public class Issue {
         sb.append(',');
         sb.append("createdAt");
         sb.append('=');
-        sb.append(((this.createdAt == null) ? "<null>" : this.createdAt));
+        sb.append(((this.created_at == null) ? "<null>" : this.created_at));
         sb.append(',');
         sb.append("updatedAt");
         sb.append('=');
-        sb.append(((this.updatedAt == null) ? "<null>" : this.updatedAt));
+        sb.append(((this.updated_at == null) ? "<null>" : this.updated_at));
         sb.append(',');
         sb.append("closedAt");
         sb.append('=');
-        sb.append(((this.closedAt == null) ? "<null>" : this.closedAt));
+        sb.append(((this.closed_at == null) ? "<null>" : this.closed_at));
         sb.append(',');
         sb.append("labels");
         sb.append('=');
