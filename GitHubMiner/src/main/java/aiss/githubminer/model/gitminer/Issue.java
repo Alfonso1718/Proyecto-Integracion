@@ -1,6 +1,8 @@
 
 package aiss.githubminer.model.gitminer;
 
+import aiss.githubminer.model.githubMiner.issues.Label;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class Issue {
 
     private String closed_at;
 
-    private List<String> labels;
+    private List<Label> labels;
 
 
     private UserGitMiner author;
@@ -38,7 +40,7 @@ public class Issue {
 
     private List<Comment> comments;
 
-    public Issue(String id, String title, String description, String state, String created_at, String updated_at, String closed_at, List<String> labels,
+    public Issue(String id, String title, String description, String state, String created_at, String updated_at, String closed_at, List<Label> labels,
                  UserGitMiner author, UserGitMiner assignee, Integer votes, List<Comment> comments) {
         this.id = id;
         this.title = title;
@@ -113,11 +115,11 @@ public class Issue {
         this.closed_at = closed_at;
     }
 
-    public List<String> getLabels() {
+    public List<Label> getLabels() {
         return labels;
     }
 
-    public void setLabels(List<String> labels) {
+    public void setLabels(List<Label> labels) {
         this.labels = labels;
     }
 
