@@ -18,10 +18,6 @@ public class CommitService {
 
     @Autowired
     RestTemplate restTemplate;
-    @Autowired
-    UserService userService;
-    @Autowired
-    CommentService commentService;
 
     private final String uri = "https://api.github.com/repos/";
 

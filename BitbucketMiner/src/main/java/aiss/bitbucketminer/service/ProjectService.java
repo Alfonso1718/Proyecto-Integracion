@@ -24,13 +24,13 @@ public class ProjectService {
 
         Project project = restTemplate.getForObject(baseUri, Project.class);
 
+        assert project != null;
         GitminerProject projectFinal = new GitminerProject(project.getUuid(), project.getName(), project.getLinks().getHtml().toString());
         projectFinal.setCommits(null);
         projectFinal.setIssues(null);
 
         return projectFinal;
     }
-
 
 
     public GitminerProject buildProject(String workspace, String repoSlug, int nCommits, int nIssues, int maxPages) {

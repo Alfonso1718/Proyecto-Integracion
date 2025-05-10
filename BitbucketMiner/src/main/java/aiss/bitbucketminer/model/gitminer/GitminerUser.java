@@ -2,13 +2,9 @@
 package aiss.bitbucketminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "GHMUser")     // Watch out: User is a reserved keyword in H2
 public class GitminerUser {
 
     @Id
@@ -23,6 +19,14 @@ public class GitminerUser {
     private String avatarUrl;
     @JsonProperty("web_url")
     private String webUrl;
+
+    public GitminerUser (String id, String username, String name, String avatarUrl, String webUrl){
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.avatarUrl = avatarUrl;
+        this.webUrl = webUrl;
+    }
 
     public String getId() {
         return id;

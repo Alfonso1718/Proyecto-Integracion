@@ -4,7 +4,6 @@ package aiss.bitbucketminer.model.gitminer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import org.apache.catalina.User;
 
 import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,17 +33,32 @@ public class GitminerIssue {
     //@NotEmpty(message = "The author of the issue cannot be empty")
     @JoinColumn(name = "author_id",referencedColumnName = "id")
     @OneToOne(cascade=CascadeType.ALL)
-    private User author;
+    private GitminerUser author;
     @JsonProperty("assignee")
     @JoinColumn(name = "assignee_id",referencedColumnName = "id")
     @OneToOne(cascade=CascadeType.ALL)
-    private User assignee;
+    private GitminerUser assignee;
     @JsonProperty("votes")
     private Integer votes;
     @JsonProperty("comments")
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "issueId")
     private List<GitminerComment> comments;
+
+    public GitminerIssue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<String> labels, GitminerUser author, GitminerUser assignee, Integer votes, List<GitminerComment> comments) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.closedAt = closedAt;
+        this.labels = labels;
+        this.author = author;
+        this.assignee = assignee;
+        this.votes = votes;
+        this.comments = comments;
+    }
 
     public String getId() {
         return id;
@@ -110,19 +124,19 @@ public class GitminerIssue {
         this.labels = labels;
     }
 
-    public User getAuthor() {
+    public GitminerUser getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(GitminerUser author) {
         this.author = author;
     }
 
-    public User getAssignee() {
+    public GitminerUser getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(User assignee) {
+    public void setAssignee(GitminerUser assignee) {
         this.assignee = assignee;
     }
 

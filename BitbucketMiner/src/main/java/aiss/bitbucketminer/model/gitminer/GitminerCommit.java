@@ -2,14 +2,9 @@ package aiss.bitbucketminer.model.gitminer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 
-
-@Entity
-@Table(name = "Commit")
 public class GitminerCommit {
 
     @Id
@@ -34,6 +29,20 @@ public class GitminerCommit {
     @NotEmpty(message = "URL cannot be empty." +
             "")
     private String webUrl;
+
+
+    public GitminerCommit(String id, String title, String message,
+                  String author_name, String author_email, String authored_date,
+                  String web_url) {
+        this.id = id;
+        this.title = title;
+        this.message = message;
+        this.authorName = author_name;
+        this.authorEmail = author_email;
+        this.authoredDate = authored_date;
+        this.webUrl = web_url;
+    }
+
 
     public String getId() {
         return id;

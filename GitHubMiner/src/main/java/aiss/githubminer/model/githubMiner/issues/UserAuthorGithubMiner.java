@@ -5,46 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.*;
-import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "login",
-    "id",
-    "node_id",
-    "avatar_url",
-    "gravatar_id",
-    "url",
-    "html_url",
-    "followers_url",
-    "following_url",
-    "gists_url",
-    "starred_url",
-    "subscriptions_url",
-    "organizations_url",
-    "repos_url",
-    "events_url",
-    "received_events_url",
-    "type",
-    "user_view_type",
-    "site_admin",
-    "name",
-    "company",
-    "blog",
-    "location",
-    "email",
-    "hireable",
-    "bio",
-    "twitter_username",
-    "public_repos",
-    "public_gists",
-    "followers",
-    "following",
-    "created_at",
-    "updated_at"
-})
-@Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserAuthorGithubMiner {
 

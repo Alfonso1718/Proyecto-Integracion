@@ -3,23 +3,10 @@ package aiss.githubminer.model.githubMiner.issues;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import jakarta.annotation.Generated;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.validation.Valid;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "url",
-    "total_count",
-    "laugh",
-    "hooray",
-    "confused",
-    "heart",
-    "rocket",
-    "eyes"
-})
-@Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReactionsIssues {
 

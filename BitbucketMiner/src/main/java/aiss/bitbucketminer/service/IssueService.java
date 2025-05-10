@@ -8,10 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class IssueService {
@@ -33,7 +30,7 @@ public List<GitminerIssue> getIssues(String workspace, String repoSlug, int nIss
     for (int i = 1; i <= pages; i++) {
         String issueUri = uri + workspace + "/" + repoSlug + "/issues?state=all"
                 + "&page=" + i
-                + "&per_page=" + size;
+                + "&pagelen=" + size;
 
         ResponseEntity<Issue[]> res = restTemplate.exchange(
                 issueUri,
@@ -51,26 +48,34 @@ public List<GitminerIssue> getIssues(String workspace, String repoSlug, int nIss
     }
 
     return issuesToBeMapped.stream()
-            .map(this::mapIssue)
+            .map(issue -> mapIssue(issue, workspace, repoSlug))
             .toList();
     }
 
-    public GitminerIssue mapIssue(Issue githubIssue) {
+    public GitminerIssue mapIssue(Issue githubIssue,String workspace, String repoSlug) {
 
         GitminerIssue issue = new GitminerIssue(
                 githubIssue.getId().toString(),
                 githubIssue.getTitle(),
-                githubIssue.getContent(),
+                githubIssue.getContent().toString(),
                 githubIssue.getState(),
                 githubIssue.getCreatedOn(),
                 githubIssue.getUpdatedOn(),
                 githubIssue.getUpdatedOn(), // closedAt (asumimos ultima fecha de actualizacion como la de fin)
-                githubIssue.getState(), // asumimos que el estado es una etiqueta (labels en el modelo de gitminer)
-                userService.parseUser(githubIssue.getReporter()),
-                userService.parseUser(githubIssue.getAssignee()),
-                githubIssue.getVotes()
+                Collections.singletonList(githubIssue.getState()), // asumimos que el estado es una etiqueta (labels en el modelo de gitminer)
+                userService.parseUser(githubIssue.getReporter().getUuid(),
+                                        githubIssue.getReporter().getDisplayName(), // displayName
+                                        githubIssue.getReporter().getDisplayName(), // name pero ponemos lo mismo
+                                        null,null), // no aparece en los pojo
+
+                userService.parseUser(githubIssue.getReporter().getUuid(),
+                                        githubIssue.getReporter().getDisplayName(), // displayName
+                                        githubIssue.getReporter().getDisplayName(), // name pero ponemos lo mismo
+                                        null,null), // no aparece en los pojo
+                githubIssue.getVotes(),
+                Collections.emptyList()
         );
-        issue.setComments(commentService.getComments(githubIssue));
+        issue.setComments(commentService.getComments(githubIssue, workspace, repoSlug));
         return issue;
     }
 

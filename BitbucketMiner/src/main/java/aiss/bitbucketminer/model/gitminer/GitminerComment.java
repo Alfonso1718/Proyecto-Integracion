@@ -1,14 +1,11 @@
 
 package aiss.bitbucketminer.model.gitminer;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import org.apache.catalina.User;
 
-@Entity
-@Table(name = "Comment")
 public class GitminerComment {
 
     @Id
@@ -29,6 +26,15 @@ public class GitminerComment {
     private String createdAt;
     @JsonProperty("updated_at")
     private String updatedAt;
+
+    public GitminerComment(String id, String body, User author, String createdAt, String updatedAt) {
+        this.id = id;
+        this.author=author;
+        this.body=body;
+        this.createdAt =createdAt;
+        this.updatedAt=updatedAt;
+    }
+
 
     public String getId() {
         return id;

@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
-
-@Entity
-@Table(name = "Commit")
 public class Commit {
 
     public Commit(String id, String title, String message,

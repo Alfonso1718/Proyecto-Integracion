@@ -6,43 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.*;
-import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "url",
-    "repository_url",
-    "labels_url",
-    "comments_url",
-    "events_url",
-    "html_url",
-    "id",
-    "node_id",
-    "number",
-    "title",
-    "user",
-    "labels",
-    "state",
-    "locked",
-    "assignee",
-    "assignees",
-    "milestone",
-    "comments",
-    "created_at",
-    "updated_at",
-    "closed_at",
-    "author_association",
-    "active_lock_reason",
-    "sub_issues_summary",
-    "body",
-    "closed_by",
-    "reactions",
-    "timeline_url",
-    "performed_via_github_app",
-    "state_reason"
-})
-@Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IssuesGithubMiner {
 

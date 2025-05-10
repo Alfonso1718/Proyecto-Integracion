@@ -1,6 +1,7 @@
 
 package aiss.bitbucketminer.model.bitbucketMiner.Issue;
 
+import aiss.bitbucketminer.model.bitbucketMiner.User.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,9 +19,9 @@ public class Issue {
     @JsonProperty("title")
     private String title;
     @JsonProperty("reporter")
-    private Reporter reporter;
+    private User reporter;
     @JsonProperty("assignee")
-    private Assignee assignee;
+    private User assignee;
     @JsonProperty("created_on")
     private String createdOn;
     @JsonProperty("updated_on")
@@ -95,22 +96,22 @@ public class Issue {
     }
 
     @JsonProperty("reporter")
-    public Reporter getReporter() {
+    public User getReporter() {
         return reporter;
     }
 
     @JsonProperty("reporter")
-    public void setReporter(Reporter reporter) {
+    public void setReporter(User reporter) {
         this.reporter = reporter;
     }
 
     @JsonProperty("assignee")
-    public Assignee getAssignee() {
+    public User getAssignee() {
         return assignee;
     }
 
     @JsonProperty("assignee")
-    public void setAssignee(Assignee assignee) {
+    public void setAssignee(User assignee) {
         this.assignee = assignee;
     }
 

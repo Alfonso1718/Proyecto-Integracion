@@ -3,9 +3,6 @@ package aiss.githubminer.service;
 import aiss.githubminer.model.githubMiner.project.ProjectGithubMiner;
 import aiss.githubminer.model.gitminer.Project;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,6 +24,7 @@ public class ProjectService {
 
         ProjectGithubMiner projectGithubMiner = restTemplate.getForObject(baseUri, ProjectGithubMiner.class);
 
+        assert projectGithubMiner != null;
         Project project = new Project(
             projectGithubMiner.getId().toString(), projectGithubMiner.getName(), projectGithubMiner.getHtmlUrl()
         );
