@@ -3,6 +3,9 @@ package aiss.githubminer.service;
 import aiss.githubminer.model.githubMiner.commits.CommitsGithubMiner;
 import aiss.githubminer.model.gitminer.Commit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,10 @@ public class CommitService {
     RestTemplate restTemplate;
 
     private final String uri = "https://api.github.com/repos/";
+    @Value("${github.token}")
+    private String token;
+
+
 
     public List<Commit> getCommitsFromProject(String owner, String repo, int sinceCommits, int maxPages) {
 
@@ -34,10 +41,15 @@ public class CommitService {
                     + "&page=" + i
                     + "&per_page=" + size;
 
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(token);
+
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
             ResponseEntity<CommitsGithubMiner[]> res = restTemplate.exchange(
                     commitUri,
                     HttpMethod.GET,
-                    null,
+                    entity,
                     CommitsGithubMiner[].class
             );
 
@@ -57,12 +69,15 @@ public class CommitService {
 
     public Commit mapCommit(CommitsGithubMiner githubCommit) {
 
-        String[] mensaje = githubCommit.getCommit().getMessage().split("\n\n", 2);
+        String[] mensaje = githubCommit.getCommit().getMessage().split("\n\n");
+
+        String title = mensaje.length > 0 ? mensaje[0].strip() : "";
+        String description = mensaje.length > 1 ? mensaje[1].strip() : "";
 
         Commit commit = new Commit(
                 githubCommit.getNodeId().toString(),
-                mensaje[0].strip().toString(),
-                mensaje[1].strip().toString(),
+                title,
+                description,
                 githubCommit.getCommit().getAuthor().getName(),
                 githubCommit.getCommit().getAuthor().getEmail(),
                 githubCommit.getCommit().getAuthor().getDate(),
@@ -70,6 +85,7 @@ public class CommitService {
         );
 
         return commit;
+
     }
 
 }

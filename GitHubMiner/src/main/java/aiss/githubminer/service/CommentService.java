@@ -6,9 +6,8 @@ import aiss.githubminer.model.gitminer.Issue;
 import aiss.githubminer.model.gitminer.UserGitMiner;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,17 +21,26 @@ public class CommentService {
 
     @Autowired
     RestTemplate restTemplate;
+    @Value("${github.token}")
+    private String token;
+
 
     public final String uri = "https://api.github.com/repos/";
+
 
     public List<Comment> getCommentsFromIssue(String owner, String repo, Integer issueId) {
 
         String baseUri = uri + owner + "/" + repo + "/" + "issues/" + issueId + "/comments";
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + token);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+
 
         ResponseEntity<CommentsGithubMiner[]> commentsGithubMiner = restTemplate.exchange(
                 baseUri,
                 HttpMethod.GET,
-                null,
+                entity,
                 CommentsGithubMiner[].class);
 
         CommentsGithubMiner[] res = commentsGithubMiner.getBody();
