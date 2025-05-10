@@ -1,6 +1,7 @@
 
 package aiss.githubminer.model.githubMiner.issues;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class IssuesGithubMiner {
     private AuthorIssue user;
     @JsonProperty("labels")
     @Valid
-    private List<Object> labels;
+    private List<Label> labels;
     @JsonProperty("state")
     private String state;
     @JsonProperty("locked")
@@ -172,13 +173,13 @@ public class IssuesGithubMiner {
     }
 
     @JsonProperty("labels")
-    public List<Object> getLabels() {
+    public List<Label> getLabels() {
         return labels;
     }
 
     @JsonProperty("labels")
-    public void setLabels(List<Object> labels) {
-        this.labels = labels;
+    public void setLabels(List<Label> labels) {
+        this.labels = new ArrayList<>(labels);
     }
 
     @JsonProperty("state")
