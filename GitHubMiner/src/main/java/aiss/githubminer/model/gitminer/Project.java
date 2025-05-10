@@ -1,10 +1,6 @@
 
 package aiss.githubminer.model.gitminer;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +14,17 @@ public class Project {
     public String name;
 
 
-    public String webUrl;
+    public String web_url;
 
     private List<Commit> commits;
 
 
     private List<Issue> issues;
 
-    public Project(String id, String name, String webUrl) {
+    public Project(String id, String name, String web_url) {
         this.id = id;
         this.name = name;
-        this.webUrl = webUrl;
+        this.web_url = web_url;
         this.commits = new ArrayList<>();
         this.issues = new ArrayList<>();
     }
@@ -49,12 +45,12 @@ public class Project {
         this.name = name;
     }
 
-    public String getWebUrl() {
-        return webUrl;
+    public String getWeb_url() {
+        return web_url;
     }
 
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
+    public void setWeb_url(String web_url) {
+        this.web_url = web_url;
     }
 
     public List<Commit> getCommits() {

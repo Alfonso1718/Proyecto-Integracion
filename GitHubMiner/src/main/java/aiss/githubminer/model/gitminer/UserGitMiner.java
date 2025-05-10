@@ -10,16 +10,16 @@ public class UserGitMiner {
 
     private String name;
 
-    private String avatarUrl;
+    private String avatar_url;
 
-    private String webUrl;
+    private String web_url;
 
-    public UserGitMiner(String id, String login, String name, String avatarUrl, String url) {
+    public UserGitMiner(String id, String login, String name, String avatar_url, String url) {
         this.id = id;
         this.username = login;
         this.name = name;
-        this.avatarUrl = avatarUrl;
-        this.webUrl = url;
+        this.avatar_url = avatar_url;
+        this.web_url = url;
     }
 
     public String getId() {
@@ -46,20 +46,20 @@ public class UserGitMiner {
         this.name = name;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getAvatar_url() {
+        return avatar_url;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
     }
 
-    public String getWebUrl() {
-        return webUrl;
+    public String getWeb_url() {
+        return web_url;
     }
 
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
+    public void setWeb_url(String web_url) {
+        this.web_url = web_url;
     }
 
     @Override
@@ -80,11 +80,11 @@ public class UserGitMiner {
         sb.append(',');
         sb.append("avatarUrl");
         sb.append('=');
-        sb.append(((this.avatarUrl == null)?"<null>":this.avatarUrl));
+        sb.append(((this.avatar_url == null)?"<null>":this.avatar_url));
         sb.append(',');
         sb.append("webUrl");
         sb.append('=');
-        sb.append(((this.webUrl == null)?"<null>":this.webUrl));
+        sb.append(((this.web_url == null)?"<null>":this.web_url));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

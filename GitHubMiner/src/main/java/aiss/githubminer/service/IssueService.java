@@ -74,7 +74,7 @@ public class IssueService {
     public Issue mapIssue(String owner, String repo, IssuesGithubMiner githubIssue) {
 
         List<String> labels = (githubIssue.getLabels() != null)
-                ? githubIssue.getLabels().stream().map(Object::toString).toList()
+                ? githubIssue.getLabels().stream().map(Object::toString).map(s -> s.substring(0,30)).toList()
                 : new ArrayList<>();
 
 
