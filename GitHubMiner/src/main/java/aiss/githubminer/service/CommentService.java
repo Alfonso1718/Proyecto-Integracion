@@ -3,6 +3,7 @@ package aiss.githubminer.service;
 import aiss.githubminer.model.githubMiner.comments.CommentsGithubMiner;
 import aiss.githubminer.model.gitminer.Comment;
 import aiss.githubminer.model.gitminer.Issue;
+import aiss.githubminer.model.gitminer.UserGitMiner;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -13,23 +14,20 @@ import org.springframework.web.client.RestTemplate;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class CommentService {
 
     @Autowired
-    UserService userService;
-    @Autowired
     RestTemplate restTemplate;
 
     public final String uri = "https://api.github.com/repos/";
 
-    public List<Comment> getCommentsFromIssue(Integer issueId) {
+    public List<Comment> getCommentsFromIssue(String owner, String repo, Integer issueId) {
 
-        String baseUri = uri + issueId + "/comments";
-
-        List<Comment> commentsToBeMapped = new ArrayList<>();
+        String baseUri = uri + owner + "/" + repo + "/" + "issues/" + issueId + "/comments";
 
         ResponseEntity<CommentsGithubMiner[]> commentsGithubMiner = restTemplate.exchange(
                 baseUri,
@@ -38,40 +36,31 @@ public class CommentService {
                 CommentsGithubMiner[].class);
 
         CommentsGithubMiner[] res = commentsGithubMiner.getBody();
-        // TODO ACABAR
+        if (res == null) return new ArrayList<>();
 
-        // TODO
-        // Tiene que recuperar la lista de comments (cambiar casi todo el metodo)
+        List<CommentsGithubMiner> commentsToBeMapped = new ArrayList<>();
 
-        return new Comment(
-            commentsGithubMiner.getId().toString(),
-            commentsGithubMiner.getBody(),
-            userService.parseUser(commentsGithubMiner.getUser()),
-            commentsGithubMiner.getCreatedAt(),
-            commentsGithubMiner.getUpdatedAt()
-        );
+        commentsToBeMapped.addAll(Arrays.asList(res));
+
+        return commentsToBeMapped.stream()
+                .map(this :: mapComment)
+                .toList();
     }
 
-//    public List<Comment> getCommentsFromIssue(String owner, String repo, int sinceIssues, int maxPages, Integer issueId) {
-//
-//        List<Issue> issues = issueService.getIssuesFromProject(owner, repo, sinceIssues, maxPages);
-//
-//        List<Comment> commentsToBeMapped = issues.stream()
-//                .filter(e->e.getId().equals(issueId))
-//                .findFirst()
-//                .get()
-//                .getComments();
-//
-//        return commentsToBeMapped.stream()
-//                .map(this::mapComment)
-//                .toList();
-//    }
-//
-//    public Comment mapComment(Comment commentUnparsed) {
-//        Comment comment = new Comment(
-//
-//        );
-//        return comment;
-//    }
+    public Comment mapComment(CommentsGithubMiner gitHubComment) {
+        Comment res = new Comment(
+                gitHubComment.getId().toString(),
+                gitHubComment.getBody(),
+                new UserGitMiner(gitHubComment.getUser().getId().toString(),
+                        gitHubComment.getUser().getLogin(),
+                        gitHubComment.getUser().getLogin(),
+                        gitHubComment.getUser().getAvatarUrl(),
+                        gitHubComment.getUser().getUrl()),
+                gitHubComment.getCreatedAt(),
+                gitHubComment.getUpdatedAt()
+        );
+        return res;
+    }
+
 }
 

@@ -54,11 +54,11 @@ public class IssueService {
         }
 
         return issuesToBeMapped.stream()
-                .map(this::mapIssue)
+                .map(e -> mapIssue(owner, repo, e))
                 .toList();
     }
 
-    public Issue mapIssue(IssuesGithubMiner githubIssue) {
+    public Issue mapIssue(String owner, String repo, IssuesGithubMiner githubIssue) {
 
         Issue issue = new Issue(
             githubIssue.getId().toString(),
@@ -72,9 +72,9 @@ public class IssueService {
             userService.parseUser(githubIssue.getUser()),
             userService.parseUser(githubIssue.getAssignee()),
             githubIssue.getReactions().getTotalCount(),
-            null
-        );
-        issue.setComments(commentService.getCommentsFromIssue(githubIssue.getNumber()));
+            null);
+        issue.setComments(commentService.getCommentsFromIssue(owner,repo,githubIssue.getNumber()));
+
         return issue;
     }
 

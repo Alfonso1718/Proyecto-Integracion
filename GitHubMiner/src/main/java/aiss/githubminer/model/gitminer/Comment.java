@@ -42,11 +42,11 @@ public class Comment {
         this.body = body;
     }
 
-    public User getAuthor() {
+    public UserGitMiner getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(UserGitMiner author) {
         this.author = author;
     }
 
