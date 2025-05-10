@@ -1,6 +1,7 @@
 package aiss.bitbucketminer.service;
 
 import aiss.bitbucketminer.model.bitbucketMiner.Issue.Issue;
+import aiss.bitbucketminer.model.bitbucketMiner.Issue.Values;
 import aiss.bitbucketminer.model.gitminer.GitminerIssue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,19 +51,19 @@ public class IssueService {
                 HttpHeaders headers = createAuthHeaders();
                 HttpEntity<String> entity = new HttpEntity<>(headers);
 
-                ResponseEntity<Issue[]> res = restTemplate.exchange(
+                ResponseEntity<Values> res = restTemplate.exchange(
                         issueUri,
                         HttpMethod.GET,
                         entity,
-                        Issue[].class
+                        Values.class
                 );
 
-                Issue[] bitbucketIssues = res.getBody();
-                if (bitbucketIssues == null || bitbucketIssues.length == 0) {
+                List<Issue> bitbucketIssues = res.getBody().getValues();
+                if (bitbucketIssues == null || bitbucketIssues.isEmpty()) {
                     break;
                 }
 
-                issuesToBeMapped.addAll(Arrays.asList(bitbucketIssues));
+                issuesToBeMapped.addAll(bitbucketIssues);
             }
 
             return issuesToBeMapped.stream()
@@ -86,6 +87,14 @@ public class IssueService {
     }
 
     public GitminerIssue mapIssue(Issue bitbucketIssue, String workspace, String repoSlug) {
+
+        // CREAMOS LAS ETIQUETAS CON CLASES EXISTENTES
+        List<String> labels = new ArrayList<>();
+        if (bitbucketIssue.getKind() != null) labels.add(bitbucketIssue.getKind());
+        if (bitbucketIssue.getPriority() != null) labels.add(bitbucketIssue.getPriority());
+        if (bitbucketIssue.getComponent() != null && bitbucketIssue.getComponent().getType() != null)
+            labels.add(bitbucketIssue.getComponent().getType());
+
         GitminerIssue issue = new GitminerIssue(
                 bitbucketIssue.getId().toString(),
                 bitbucketIssue.getTitle(),
@@ -94,7 +103,7 @@ public class IssueService {
                 bitbucketIssue.getCreatedOn(),
                 bitbucketIssue.getUpdatedOn(),
                 bitbucketIssue.getUpdatedOn(),
-                Collections.singletonList(bitbucketIssue.getState()),
+                labels,
                 userService.parseUser(bitbucketIssue.getAssignee().getUuid()),
                 userService.parseUser(bitbucketIssue.getReporter().getUuid()),
                 bitbucketIssue.getVotes(),

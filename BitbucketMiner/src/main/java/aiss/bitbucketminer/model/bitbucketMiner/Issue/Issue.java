@@ -45,6 +45,7 @@ public class Issue {
     @JsonProperty("content")
     private Content content;
 
+
     @JsonProperty("type")
     public String getType() {
         return type;
