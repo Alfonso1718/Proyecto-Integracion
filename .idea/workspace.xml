@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/IssueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/IssueService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2wSP08uZuku5fFApm5aslIaVWU9" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
