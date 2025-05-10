@@ -18,10 +18,10 @@ public class CommentService {
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
-    public List<GitminerComment> getComments(Issue githubIssue, String workspace, String repoSlug) {
+    public List<GitminerComment> getComments(String workspace, String repoSlug, Integer githubIssueId) {
         List<GitminerComment> gitminerComments = new ArrayList<>();
 
-        String commentsUri = uri + workspace + "/" + repoSlug + "/issues/" + githubIssue.getId() + "/comments";
+        String commentsUri = uri + workspace + "/" + repoSlug + "/issues/" + githubIssueId + "/comments";
 
         Comment[] comments = restTemplate.getForObject(commentsUri, Comment[].class);
 

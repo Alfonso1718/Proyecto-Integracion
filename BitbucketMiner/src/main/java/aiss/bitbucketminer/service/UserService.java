@@ -13,18 +13,18 @@ public class UserService {
     RestTemplate restTemplate;
     private final String uri = "https://api.bitbucket.org/2.0/users/";
 
-    public GitminerUser parseUser(String uuid, String displayName, String name, String avatarUrl, String webUrl) {
+    public GitminerUser parseUser(String uuid) {
 
         String baseUri = uri + uuid;
 
         User usuario = restTemplate.getForObject(baseUri, User.class);
 
-        // TODO EXCEPCION QEU USSUARIO NO SEA NULL
+        // TODO EXCEPCION QUE USUARIO NO SEA NULL
         return new GitminerUser(
                 usuario.getUuid(),
                 usuario.getDisplayName(),
                 usuario.getDisplayName(),
-                usuario.getLinks().getAvatar().toString(),
+                null, // no aparece en pojo
                 null // no aparece en pojo
         );
     }

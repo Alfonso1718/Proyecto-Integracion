@@ -63,19 +63,12 @@ public List<GitminerIssue> getIssues(String workspace, String repoSlug, int nIss
                 githubIssue.getUpdatedOn(),
                 githubIssue.getUpdatedOn(), // closedAt (asumimos ultima fecha de actualizacion como la de fin)
                 Collections.singletonList(githubIssue.getState()), // asumimos que el estado es una etiqueta (labels en el modelo de gitminer)
-                userService.parseUser(githubIssue.getReporter().getUuid(),
-                                        githubIssue.getReporter().getDisplayName(), // displayName
-                                        githubIssue.getReporter().getDisplayName(), // name pero ponemos lo mismo
-                                        null,null), // no aparece en los pojo
-
-                userService.parseUser(githubIssue.getReporter().getUuid(),
-                                        githubIssue.getReporter().getDisplayName(), // displayName
-                                        githubIssue.getReporter().getDisplayName(), // name pero ponemos lo mismo
-                                        null,null), // no aparece en los pojo
+                userService.parseUser(githubIssue.getAssignee().getUuid()),
+                userService.parseUser(githubIssue.getReporter().getUuid()),
                 githubIssue.getVotes(),
                 Collections.emptyList()
         );
-        issue.setComments(commentService.getComments(githubIssue, workspace, repoSlug));
+        issue.setComments(commentService.getComments(workspace, repoSlug, githubIssue.getId()));
         return issue;
     }
 

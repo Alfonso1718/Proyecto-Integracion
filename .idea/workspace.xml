@@ -4,28 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="">
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR">
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/test/java/bitbucketminer/serviceTest/CommentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/test/java/bitbucketminer/serviceTest/CommitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/test/java/bitbucketminer/serviceTest/IssueTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/test/java/bitbucketminer/serviceTest/ProjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/test/java/bitbucketminer/serviceTest/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Assignee.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Assignee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Issue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Reporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Issue/Reporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerCommit.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerCommit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerIssue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommitService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/IssueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/IssueService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/ProjectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/AuthorIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/AuthorIssue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/IssuesGithubMiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/IssuesGithubMiner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/ReactionsIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/ReactionsIssues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/UserAuthorGithubMiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/githubMiner/issues/UserAuthorGithubMiner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/model/gitminer/Commit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/ProjectService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,26 +58,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
-    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sol/Desktop/Proyecto-Integracion/BitbucketMiner/src/main/java/aiss/bitbucketminer/model&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ProjectTest.executor": "Run",
+    "JUnit.ProjectTest.getProject.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sol/Desktop/Proyecto-Integracion/BitbucketMiner/src/main/java/aiss/bitbucketminer/model",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sol\Desktop\Proyecto-Integracion\BitbucketMiner\src\main\java\aiss\bitbucketminer\model" />
@@ -115,7 +105,38 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Unknown.BitbucketminerApplication2143535495">
+  <component name="RunManager" selected="JUnit.ProjectTest">
+    <configuration name="ProjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bitbucketminer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bitbucketminer.serviceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bitbucketminer.serviceTest" />
+      <option name="MAIN_CLASS_NAME" value="bitbucketminer.serviceTest.ProjectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectTest.getProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bitbucketminer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bitbucketminer.serviceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bitbucketminer.serviceTest" />
+      <option name="MAIN_CLASS_NAME" value="bitbucketminer.serviceTest.ProjectTest" />
+      <option name="METHOD_NAME" value="getProject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BitbucketminerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bitbucketminer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="bitbucketminer.BitbucketminerApplication" />
@@ -137,6 +158,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ProjectTest" />
+        <item itemvalue="JUnit.ProjectTest.getProject" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -192,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746818658103</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR">
+      <option name="closed" value="true" />
+      <created>1746849322913</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746849322913</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +249,18 @@
     <MESSAGE value="Cambio en las clases GitHubMiner (DEFINITIVO)" />
     <MESSAGE value="Avanzo en CommentService y CommitService" />
     <MESSAGE value="Cambio en CommentService PARA DAROS UNA IDEA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio en CommentService PARA DAROS UNA IDEA" />
+    <MESSAGE value="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR" />
+    <option name="LAST_COMMIT_MESSAGE" value="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BitbucketMiner/src/test/java/bitbucketminer/serviceTest/ProjectTest.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
