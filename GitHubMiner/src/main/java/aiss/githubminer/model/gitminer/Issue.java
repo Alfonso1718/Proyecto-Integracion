@@ -47,11 +47,12 @@ public class Issue {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.closedAt = closedAt;
-        this.labels = new ArrayList<>(labels);
+        this.labels = labels != null ? new ArrayList<>(labels) : new ArrayList<>();
         this.author = author;
         this.assignee = assignee;
         this.votes = votes;
-        this.comments = new ArrayList<>(comments);
+        this.comments = (comments != null) ? new ArrayList<>(comments) : new ArrayList<>();
+
     }
 
 

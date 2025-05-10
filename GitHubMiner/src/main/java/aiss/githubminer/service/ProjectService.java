@@ -3,6 +3,10 @@ package aiss.githubminer.service;
 import aiss.githubminer.model.githubMiner.project.ProjectGithubMiner;
 import aiss.githubminer.model.gitminer.Project;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,13 +20,23 @@ public class ProjectService {
     @Autowired
     public IssueService issueService;
 
+
     public final String uri = "https://api.github.com/repos/";
+    @Value("${github.token}")
+    private String token;
 
     public Project getProject(String owner, String repo) {
 
         String baseUri = uri + owner + "/" + repo;
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + token);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ProjectGithubMiner projectGithubMiner = restTemplate.getForObject(baseUri, ProjectGithubMiner.class);
+
+
+        ResponseEntity<ProjectGithubMiner> response = restTemplate.exchange(baseUri, org.springframework.http.HttpMethod.GET, entity, ProjectGithubMiner.class);
+        ProjectGithubMiner projectGithubMiner = response.getBody();
+
 
         assert projectGithubMiner != null;
         Project project = new Project(

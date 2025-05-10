@@ -5,6 +5,9 @@ import aiss.githubminer.model.githubMiner.issues.AuthorIssue;
 import aiss.githubminer.model.githubMiner.issues.UserAuthorGithubMiner;
 import aiss.githubminer.model.gitminer.UserGitMiner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,13 +17,32 @@ public class UserService {
     @Autowired
     RestTemplate restTemplate;
 
+    @Value("${github.token}")
+    private String token;
+
+
     public final String uri = "https://api.github.com/users/";
+
+    private HttpEntity<String> createAuthEntity() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + token);
+        return new HttpEntity<>(headers);
+    }
+
+
 
     public UserGitMiner getUser(String login) {
 
         String baseUri = uri + login;
+        HttpEntity<String> entity = createAuthEntity();
 
-        UserAuthorGithubMiner userAuthorGithubMiner = restTemplate.getForObject(baseUri, UserAuthorGithubMiner.class);
+        UserAuthorGithubMiner userAuthorGithubMiner = restTemplate.exchange(
+                baseUri, org.springframework.http.HttpMethod.GET, entity, UserAuthorGithubMiner.class
+        ).getBody();
+        if (userAuthorGithubMiner == null) {
+            return null;
+        }
+
 
         return new UserGitMiner(
                 userAuthorGithubMiner.getId().toString(),
@@ -32,8 +54,13 @@ public class UserService {
     }
 
     public UserGitMiner parseUser (AuthorIssue author){
+        if (author == null) {
+            return null;
+        }
         return getUser(author.getLogin());
     }
+
+
 
     public UserGitMiner parseUser(AuthorComment authorComment) {
         return getUser(authorComment.getLogin());

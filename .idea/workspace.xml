@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+=======
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Terminado GitHubMiner">
+>>>>>>> 02e9ff0 (Implementacion token y errores en GitHubMiner)
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 =======
     <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Properties">
@@ -72,7 +76,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2wSP08uZuku5fFApm5aslIaVWU9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -264,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746849322913</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Terminado GitHubMiner">
+      <option name="closed" value="true" />
+      <created>1746872865735</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746872865735</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +299,8 @@
     <MESSAGE value="Avanzo en CommentService y CommitService" />
     <MESSAGE value="Cambio en CommentService PARA DAROS UNA IDEA" />
     <MESSAGE value="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR" />
-    <option name="LAST_COMMIT_MESSAGE" value="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR" />
+    <MESSAGE value="Terminado GitHubMiner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminado GitHubMiner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
