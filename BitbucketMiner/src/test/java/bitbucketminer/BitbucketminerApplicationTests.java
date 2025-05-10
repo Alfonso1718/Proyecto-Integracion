@@ -9,9 +9,6 @@ import org.springframework.web.client.RestTemplate;
 class BitbucketminerApplicationTests {
 
 	@Test
-	void contextLoads() {
-		RestTemplate restTemplate = new RestTemplateBuilder().build();
-
-	}
+	void contextLoads() {	}
 
 }
