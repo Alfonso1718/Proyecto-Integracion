@@ -1,6 +1,7 @@
 package aiss.bitbucketminer.service;
 
 import aiss.bitbucketminer.model.bitbucketMiner.Commit.Commit;
+import aiss.bitbucketminer.model.bitbucketMiner.Commit.Values;
 import aiss.bitbucketminer.model.gitminer.GitminerCommit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,19 +41,19 @@ public class CommitService {
                 HttpHeaders headers = createAuthHeaders();
                 HttpEntity<String> entity = new HttpEntity<>(headers);
 
-                ResponseEntity<Commit[]> res = restTemplate.exchange(
+                ResponseEntity<Values> res = restTemplate.exchange(
                         commitUri,
                         HttpMethod.GET,
                         entity,
-                        Commit[].class
+                        Values.class
                 );
 
-                Commit[] bitbucketCommits = res.getBody();
-                if (bitbucketCommits == null || bitbucketCommits.length == 0) {
+                List<Commit> bitbucketCommits = res.getBody().getValues();
+                if (bitbucketCommits == null || bitbucketCommits.isEmpty()) {
                     break;
                 }
 
-                commitsToBeMapped.addAll(Arrays.asList(bitbucketCommits));
+                commitsToBeMapped.addAll(bitbucketCommits);
 
             } catch (HttpClientErrorException | ResourceAccessException ex) {
                 throw ex;
