@@ -54,9 +54,10 @@ public class CommitService {
                 .toList();
     }
 
+
     public Commit mapCommit(CommitsGithubMiner githubCommit) {
 
-        String[] mensaje = githubCommit.getCommit().getMessage().split("\n\n");
+        String[] mensaje = githubCommit.getCommit().getMessage().split("\n\n", 2);
 
         Commit commit = new Commit(
                 githubCommit.getNodeId().toString(),
@@ -70,4 +71,5 @@ public class CommitService {
 
         return commit;
     }
+
 }
