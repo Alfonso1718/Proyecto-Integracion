@@ -2,9 +2,7 @@ package aiss.githubminer.service;
 
 import aiss.githubminer.model.githubMiner.comments.CommentsGithubMiner;
 import aiss.githubminer.model.gitminer.Comment;
-import aiss.githubminer.model.gitminer.Issue;
 import aiss.githubminer.model.gitminer.UserGitMiner;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
@@ -28,6 +26,15 @@ public class CommentService {
     public List<Comment> getCommentsFromIssue(String owner, String repo, Integer issueId) {
 
         String baseUri = uri + owner + "/" + repo + "/" + "issues/" + issueId + "/comments";
+<<<<<<< Updated upstream
+=======
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + token);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
         ResponseEntity<CommentsGithubMiner[]> commentsGithubMiner = restTemplate.exchange(
                 baseUri,

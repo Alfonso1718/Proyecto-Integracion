@@ -3,6 +3,7 @@ package aiss.bitbucketminer.controller;
 import aiss.bitbucketminer.model.gitminer.GitminerProject;
 import aiss.bitbucketminer.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -16,6 +17,9 @@ public class BitbucketController {
 
     @Autowired
     public ProjectService projectService;
+
+    @Value("${github.token}")
+    private String token;
 
     private final String gitminerUri = "http://localhost:8081/gitminer/projects";
 
@@ -45,7 +49,7 @@ public class BitbucketController {
 
         // HEADERS, TOKEN
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer TU_TOKEN");
+        headers.set("Authorization", "Bearer" + token);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<?> req = new HttpEntity<>(bitbucketProject, headers);

@@ -4,9 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="SERVICIOS BITBUCKET TERMINADOS&#10;QUEDA PONER EXCEPCIONES Y SABER DONDE PONER LO DEL TOKEN DE AUTORIZACION QUE ESTA EN EL CONTROLADOR">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Properties">
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Values.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="0e4c75c1-d0c0-47c8-ad16-4cdcbcf63841" name="Changes" comment="Properties">
+      <change afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Values.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/controller/BitbucketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/controller/BitbucketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/exception/bitbucketRestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/exception/bitbucketRestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Links.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/Links.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/bitbucketMiner/Comment/UserComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/model/gitminer/GitminerComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/CommitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/IssueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/IssueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/java/aiss/bitbucketminer/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitbucketMiner/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BitbucketMiner/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/GitHubMiner/src/main/java/aiss/githubminer/service/CommentService.java" afterDir="false" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +86,24 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
     &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+=======
+=======
+>>>>>>> Stashed changes
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.GitHubMinerApplication (1).executor&quot;: &quot;Run&quot;,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/sol/Desktop/Proyecto-Integracion/BitbucketMiner/src/main/java/aiss/bitbucketminer/model&quot;,

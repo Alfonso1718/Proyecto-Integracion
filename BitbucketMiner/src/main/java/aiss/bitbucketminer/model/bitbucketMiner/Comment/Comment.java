@@ -18,7 +18,7 @@ public class Comment {
     @JsonProperty("content")
     private Content content;
     @JsonProperty("user")
-    private User user;
+    private UserComment user;
     @JsonProperty("deleted")
     private Boolean deleted;
     @JsonProperty("inline")
@@ -79,12 +79,12 @@ public class Comment {
     }
 
     @JsonProperty("user")
-    public User getUser() {
+    public UserComment getUser() {
         return user;
     }
 
     @JsonProperty("user")
-    public void setUser(User user) {
+    public void setUser(UserComment user) {
         this.user = user;
     }
 

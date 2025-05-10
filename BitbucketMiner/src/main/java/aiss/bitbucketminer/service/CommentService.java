@@ -1,45 +1,67 @@
 package aiss.bitbucketminer.service;
 
 import aiss.bitbucketminer.model.bitbucketMiner.Comment.Comment;
-import aiss.bitbucketminer.model.bitbucketMiner.Issue.Issue;
+import aiss.bitbucketminer.model.bitbucketMiner.Comment.Values;
 import aiss.bitbucketminer.model.gitminer.GitminerComment;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
+@Service
 public class CommentService {
 
     @Autowired
     RestTemplate restTemplate;
 
+    @Value("${github.token}")
+    private String token;
+
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
     public List<GitminerComment> getComments(String workspace, String repoSlug, Integer githubIssueId) {
-        List<GitminerComment> gitminerComments = new ArrayList<>();
 
         String commentsUri = uri + workspace + "/" + repoSlug + "/issues/" + githubIssueId + "/comments";
 
-        Comment[] comments = restTemplate.getForObject(commentsUri, Comment[].class);
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer " + token);
+            HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        if (comments == null) {
-            return Collections.emptyList();
-        }
-
-        for (Comment comment : comments) {
-            GitminerComment gitminerComment = new GitminerComment(
-                    comment.getId().toString(),
-                    comment.getContent().toString(), // BODY
-                    (User) comment.getUser(), // AUTOR(? TODO
-                    comment.getCreatedOn(),
-                    comment.getCreatedOn()
+            ResponseEntity<Values> response = restTemplate.exchange(
+                    commentsUri,
+                    HttpMethod.GET,
+                    entity,
+                    Values.class
             );
-            gitminerComments.add(gitminerComment);
+
+            Values res = response.getBody();
+            if (res == null) return new ArrayList<>();
+
+            return res.getValues().stream()
+                    .map(this::mapComment)
+                    .collect(Collectors.toList());
+
+        } catch (HttpClientErrorException | ResourceAccessException ex) {
+            throw ex; // será gestionado por el handler global
+        } catch (Exception ex) {
+            throw ex; // también lo captura el handler genérico
         }
-        return gitminerComments;
     }
 
+    public GitminerComment mapComment(Comment bitbucketComment) {
+        return new GitminerComment(
+                bitbucketComment.getId().toString(),
+                bitbucketComment.getContent().getRaw(),
+                bitbucketComment.getUser(),
+                bitbucketComment.getCreatedOn(),
+                bitbucketComment.getUpdatedOn()
+        );
+    }
 }
