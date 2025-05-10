@@ -4,27 +4,33 @@ import aiss.bitbucketminer.model.bitbucketMiner.Issue.Issue;
 import aiss.bitbucketminer.model.gitminer.GitminerIssue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Base64;
 
 @Service
 public class IssueService {
 
     @Autowired
     RestTemplate restTemplate;
+
     @Autowired
     CommentService commentService;
+
     @Autowired
     UserService userService;
-    @Value("bitbucket.token")
+
+    @Value("${bitbucket.username}")
+    private String username;
+
+    @Value("${bitbucket.token}")
     private String token;
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
@@ -41,8 +47,7 @@ public class IssueService {
                         + "&page=" + i
                         + "&pagelen=" + size;
 
-                HttpHeaders headers = new HttpHeaders();
-                headers.set("Authorization", "Bearer " + token);
+                HttpHeaders headers = createAuthHeaders();
                 HttpEntity<String> entity = new HttpEntity<>(headers);
 
                 ResponseEntity<Issue[]> res = restTemplate.exchange(
@@ -52,17 +57,17 @@ public class IssueService {
                         Issue[].class
                 );
 
-                Issue[] githubIssues = res.getBody();
-                if (githubIssues == null || githubIssues.length == 0) {
+                Issue[] bitbucketIssues = res.getBody();
+                if (bitbucketIssues == null || bitbucketIssues.length == 0) {
                     break;
                 }
 
-                issuesToBeMapped.addAll(Arrays.asList(githubIssues));
+                issuesToBeMapped.addAll(Arrays.asList(bitbucketIssues));
             }
 
             return issuesToBeMapped.stream()
                     .map(issue -> mapIssue(issue, workspace, repoSlug))
-                    .toList();
+                    .collect(Collectors.toList());
 
         } catch (HttpClientErrorException | ResourceAccessException e) {
             throw e;
@@ -71,22 +76,31 @@ public class IssueService {
         }
     }
 
-    public GitminerIssue mapIssue(Issue githubIssue, String workspace, String repoSlug) {
+    private HttpHeaders createAuthHeaders() {
+        String credentials = username + ":" + token;
+        String encoded = Base64.getEncoder().encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic " + encoded);
+        return headers;
+    }
+
+    public GitminerIssue mapIssue(Issue bitbucketIssue, String workspace, String repoSlug) {
         GitminerIssue issue = new GitminerIssue(
-                githubIssue.getId().toString(),
-                githubIssue.getTitle(),
-                githubIssue.getContent().toString(),
-                githubIssue.getState(),
-                githubIssue.getCreatedOn(),
-                githubIssue.getUpdatedOn(),
-                githubIssue.getUpdatedOn(),
-                Collections.singletonList(githubIssue.getState()),
-                userService.parseUser(githubIssue.getAssignee().getUuid()),
-                userService.parseUser(githubIssue.getReporter().getUuid()),
-                githubIssue.getVotes(),
+                bitbucketIssue.getId().toString(),
+                bitbucketIssue.getTitle(),
+                bitbucketIssue.getContent().toString(),
+                bitbucketIssue.getState(),
+                bitbucketIssue.getCreatedOn(),
+                bitbucketIssue.getUpdatedOn(),
+                bitbucketIssue.getUpdatedOn(),
+                Collections.singletonList(bitbucketIssue.getState()),
+                userService.parseUser(bitbucketIssue.getAssignee().getUuid()),
+                userService.parseUser(bitbucketIssue.getReporter().getUuid()),
+                bitbucketIssue.getVotes(),
                 Collections.emptyList()
         );
-        issue.setComments(commentService.getComments(workspace, repoSlug, githubIssue.getId()));
+        issue.setComments(commentService.getComments(workspace, repoSlug, bitbucketIssue.getId()));
         return issue;
     }
 }

@@ -1,31 +1,35 @@
 package aiss.bitbucketminer.service;
 
 import aiss.bitbucketminer.model.bitbucketMiner.Project.Project;
-import aiss.bitbucketminer.model.bitbucketMiner.User.User;
 import aiss.bitbucketminer.model.gitminer.GitminerProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 @Service
 public class ProjectService {
 
     @Autowired
     RestTemplate restTemplate;
+
     @Autowired
     public CommitService commitService;
+
     @Autowired
     public IssueService issueService;
-    @Value("bitbucket.token")
-    private String token;
 
+    @Value("${bitbucket.username}")
+    private String username;
+
+    @Value("${bitbucket.token}")
+    private String token;
 
     public final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
@@ -33,8 +37,7 @@ public class ProjectService {
         String baseUri = uri + workspace + "/" + repoSlug;
 
         try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Authorization", "Bearer " + token);
+            HttpHeaders headers = createAuthHeaders();
             HttpEntity<String> entity = new HttpEntity<>(headers);
 
             ResponseEntity<Project> response = restTemplate.exchange(
@@ -71,5 +74,14 @@ public class ProjectService {
         project.setCommits(commitService.getCommits(workspace, repoSlug, nCommits, maxPages));
         project.setIssues(issueService.getIssues(workspace, repoSlug, nIssues, maxPages));
         return project;
+    }
+
+    private HttpHeaders createAuthHeaders() {
+        String credentials = username + ":" + token;
+        String encoded = Base64.getEncoder().encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic " + encoded);
+        return headers;
     }
 }

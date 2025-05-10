@@ -4,14 +4,14 @@ import aiss.bitbucketminer.model.bitbucketMiner.User.User;
 import aiss.bitbucketminer.model.gitminer.GitminerUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 @Service
 public class UserService {
@@ -19,7 +19,10 @@ public class UserService {
     @Autowired
     RestTemplate restTemplate;
 
-    @Value("bitbucket.token")
+    @Value("${bitbucket.username}")
+    private String username;
+
+    @Value("${bitbucket.token}")
     private String token;
 
     private final String uri = "https://api.bitbucket.org/2.0/users/";
@@ -27,8 +30,7 @@ public class UserService {
     public GitminerUser parseUser(String uuid) {
         String baseUri = uri + uuid;
         try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Authorization", "Bearer " + token);
+            HttpHeaders headers = createAuthHeaders();
             HttpEntity<String> entity = new HttpEntity<>(headers);
 
             ResponseEntity<User> response = restTemplate.exchange(
@@ -48,13 +50,22 @@ public class UserService {
                     user.getUuid(),
                     user.getDisplayName(),
                     user.getDisplayName(),
-                    null, // no aparece en pojo
-                    null  // no aparece en pojo
+                    null, // Email no disponible
+                    null  // Avatar URL no disponible
             );
         } catch (HttpClientErrorException | ResourceAccessException e) {
-            throw e; // Manejado por BitbucketExceptionHandler
+            throw e;
         } catch (Exception e) {
             throw new RuntimeException("Error inesperado al obtener el usuario desde Bitbucket", e);
         }
+    }
+
+    private HttpHeaders createAuthHeaders() {
+        String credentials = username + ":" + token;
+        String encoded = Base64.getEncoder().encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic " + encoded);
+        return headers;
     }
 }

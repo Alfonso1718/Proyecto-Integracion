@@ -4,18 +4,16 @@ import aiss.bitbucketminer.model.bitbucketMiner.Commit.Commit;
 import aiss.bitbucketminer.model.gitminer.GitminerCommit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Base64;
 
 @Service
 public class CommitService {
@@ -23,7 +21,10 @@ public class CommitService {
     @Autowired
     RestTemplate restTemplate;
 
-    @Value("bitbucket.token")
+    @Value("${bitbucket.username}")
+    private String username;
+
+    @Value("${bitbucket.token}")
     private String token;
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
@@ -36,8 +37,7 @@ public class CommitService {
         for (int i = 1; i <= pages; i++) {
             String commitUri = uri + workspace + "/" + repoSlug + "/commits?page=" + i + "&pagelen=" + size;
             try {
-                HttpHeaders headers = new HttpHeaders();
-                headers.set("Authorization", "Bearer " + token);
+                HttpHeaders headers = createAuthHeaders();
                 HttpEntity<String> entity = new HttpEntity<>(headers);
 
                 ResponseEntity<Commit[]> res = restTemplate.exchange(
@@ -55,26 +55,33 @@ public class CommitService {
                 commitsToBeMapped.addAll(Arrays.asList(bitbucketCommits));
 
             } catch (HttpClientErrorException | ResourceAccessException ex) {
-                // Delegado automáticamente al manejador global (@ControllerAdvice)
                 throw ex;
             } catch (Exception ex) {
-                // Otras excepciones también serán capturadas por el handler global
                 throw ex;
             }
         }
 
         return commitsToBeMapped.stream()
                 .map(this::mapCommit)
-                .toList();
+                .collect(Collectors.toList());
+    }
+
+    private HttpHeaders createAuthHeaders() {
+        String credentials = username + ":" + token;
+        String encoded = Base64.getEncoder().encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic " + encoded);
+        return headers;
     }
 
     public GitminerCommit mapCommit(Commit bitbucketCommit) {
         return new GitminerCommit(
                 bitbucketCommit.getHash(),
-                bitbucketCommit.getRepository().getName(), // Título
+                bitbucketCommit.getRepository().getName(),
                 bitbucketCommit.getMessage(),
                 bitbucketCommit.getAuthor().getUser().getDisplayName(),
-                bitbucketCommit.getAuthor().getRaw(), // Email
+                bitbucketCommit.getAuthor().getRaw(),
                 bitbucketCommit.getDate(),
                 bitbucketCommit.getLinks().getHtml().getHref()
         );
