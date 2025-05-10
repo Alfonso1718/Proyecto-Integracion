@@ -18,7 +18,7 @@ public class BitbucketController {
     @Autowired
     public ProjectService projectService;
 
-    @Value("${github.token}")
+    @Value("${bitbucket.token}")
     private String token;
 
     private final String gitminerUri = "http://localhost:8081/gitminer/projects";

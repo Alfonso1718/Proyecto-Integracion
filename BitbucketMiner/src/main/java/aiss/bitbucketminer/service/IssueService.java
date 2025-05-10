@@ -24,7 +24,7 @@ public class IssueService {
     CommentService commentService;
     @Autowired
     UserService userService;
-    @Value("${github.token}")
+    @Value("bitbucket.token")
     private String token;
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";

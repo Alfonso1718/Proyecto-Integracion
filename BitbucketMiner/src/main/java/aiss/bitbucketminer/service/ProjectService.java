@@ -23,7 +23,7 @@ public class ProjectService {
     public CommitService commitService;
     @Autowired
     public IssueService issueService;
-    @Value("${github.token}")
+    @Value("bitbucket.token")
     private String token;
 
 
