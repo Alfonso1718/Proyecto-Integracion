@@ -33,7 +33,7 @@ public class CommentService {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + token);
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        
+
 
         ResponseEntity<CommentsGithubMiner[]> commentsGithubMiner = restTemplate.exchange(
                 baseUri,
