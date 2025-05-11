@@ -60,8 +60,8 @@ public class UserService {
                     user.getUuid(),
                     user.getDisplayName(),
                     user.getDisplayName(),
-                    null, // Email no disponible
-                    null  // Avatar URL no disponible -> se puede obtener usando el link avatar de los liks??
+                    "email no disponible",
+                    "webUrl no disponible"
             );
         } catch (HttpClientErrorException | ResourceAccessException e) {
             throw e;
