@@ -2,6 +2,7 @@ package aiss.bitbucketminer.service;
 
 import aiss.bitbucketminer.model.bitbucketMiner.Issue.Issue;
 import aiss.bitbucketminer.model.bitbucketMiner.Issue.Values;
+import aiss.bitbucketminer.model.bitbucketMiner.User.User;
 import aiss.bitbucketminer.model.gitminer.GitminerIssue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -96,6 +97,11 @@ public class IssueService {
         if (bitbucketIssue.getComponent() != null && bitbucketIssue.getComponent().getType() != null)
             labels.add(bitbucketIssue.getComponent().getType());
 
+        // COMPROBAMOS SI HAY REPORTER Y ASIGNADO
+        User assignee = bitbucketIssue.getAssignee();
+        User reporter = bitbucketIssue.getReporter();
+
+
         GitminerIssue issue = new GitminerIssue(
                 String.valueOf(bitbucketIssue.getId()),
                 bitbucketIssue.getTitle(),
@@ -105,8 +111,8 @@ public class IssueService {
                 bitbucketIssue.getUpdatedOn(),
                 bitbucketIssue.getUpdatedOn(),
                 labels,
-                userService.parseUser(bitbucketIssue.getAssignee().getUuid()),
-                userService.parseUser(bitbucketIssue.getReporter().getUuid()),
+                assignee != null ? userService.parseUser(bitbucketIssue.getAssignee().getUuid()) : null,
+                reporter != null ? userService.parseUser(bitbucketIssue.getReporter().getUuid()) : null,
                 bitbucketIssue.getVotes(),
                 Collections.emptyList()
         );
