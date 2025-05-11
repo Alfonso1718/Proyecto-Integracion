@@ -24,6 +24,7 @@ public class Project {
     @JsonProperty("web_url")
     @NotEmpty(message = "The URL of the project cannot be empty")
     public String webUrl;
+
     @JsonProperty("commits")
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "projectId")
@@ -42,7 +43,6 @@ public class Project {
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -50,7 +50,6 @@ public class Project {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -58,7 +57,6 @@ public class Project {
     public String getWebUrl() {
         return webUrl;
     }
-
     public void setWebUrl(String webUrl) {
         this.webUrl = webUrl;
     }
@@ -66,7 +64,6 @@ public class Project {
     public List<Commit> getCommits() {
         return commits;
     }
-
     public void setCommits(List<Commit> commits) {
         this.commits = commits;
     }
@@ -74,7 +71,6 @@ public class Project {
     public List<Issue> getIssues() {
         return issues;
     }
-
     public void setIssues(List<Issue> issues) {
         this.issues = issues;
     }

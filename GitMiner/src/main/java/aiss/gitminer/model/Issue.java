@@ -17,21 +17,25 @@ public class Issue {
     @Id
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("title")
     private String title;
+
     @JsonProperty("description")
     @Column(columnDefinition="TEXT")
     private String description;
+
     @JsonProperty("state")
     private String state;
 
     @JsonProperty("created_at")
     private String createdAt;
+
     @JsonProperty("updated_at")
     private String updatedAt;
+
     @JsonProperty("closed_at")
     private String closedAt;
-
 
     @JsonProperty("labels")
     @OneToMany(cascade = CascadeType.ALL)
@@ -39,16 +43,18 @@ public class Issue {
     private List<Label> labels;
 
     @JsonProperty("author")
-    //@NotEmpty(message = "The author of the issue cannot be empty")
     @JoinColumn(name = "author_id",referencedColumnName = "id")
     @OneToOne(cascade=CascadeType.ALL)
     private User author;
+
     @JsonProperty("assignee")
     @JoinColumn(name = "assignee_id",referencedColumnName = "id")
     @OneToOne(cascade=CascadeType.ALL)
     private User assignee;
+
     @JsonProperty("votes")
     private Integer votes;
+
     @JsonProperty("comments")
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "issueId")
@@ -57,7 +63,6 @@ public class Issue {
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -65,7 +70,6 @@ public class Issue {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -73,7 +77,6 @@ public class Issue {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -81,7 +84,6 @@ public class Issue {
     public String getState() {
         return state;
     }
-
     public void setState(String state) {
         this.state = state;
     }
@@ -89,7 +91,6 @@ public class Issue {
     public String getCreatedAt() {
         return createdAt;
     }
-
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
@@ -97,7 +98,6 @@ public class Issue {
     public String getUpdatedAt() {
         return updatedAt;
     }
-
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
@@ -105,7 +105,6 @@ public class Issue {
     public String getClosedAt() {
         return closedAt;
     }
-
     public void setClosedAt(String closedAt) {
         this.closedAt = closedAt;
     }
@@ -113,7 +112,6 @@ public class Issue {
     public List<Label> getLabels() {
         return labels;
     }
-
     public void setLabels(List<Label> labels) {
         this.labels = labels;
     }
@@ -121,15 +119,11 @@ public class Issue {
     public User getAuthor() {
         return author;
     }
-
     public void setAuthor(User author) {
         this.author = author;
     }
 
-    public User getAssignee() {
-        return assignee;
-    }
-
+    public User getAssignee() { return assignee; }
     public void setAssignee(User assignee) {
         this.assignee = assignee;
     }
@@ -137,7 +131,6 @@ public class Issue {
     public Integer getVotes() {
         return votes;
     }
-
     public void setVotes(Integer votes) {
         this.votes = votes;
     }
@@ -145,7 +138,6 @@ public class Issue {
     public List<Comment> getComments() {
         return comments;
     }
-
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }

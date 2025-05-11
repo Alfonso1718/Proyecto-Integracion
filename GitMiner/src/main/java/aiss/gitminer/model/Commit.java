@@ -16,30 +16,32 @@ public class Commit {
     @Id
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("title")
     private String title;
 
     @JsonProperty("message")
     @Column(columnDefinition="TEXT")
     private String message;
+
     @JsonProperty("author_name")
     @NotEmpty(message = "Author name cannot be empty.")
     private String authorName;
+
     @JsonProperty("author_email")
     private String authorEmail;
+
     @JsonProperty("authored_date")
     @NotEmpty(message = "Author date cannot be empty.")
     private String authoredDate;
 
     @JsonProperty("web_url")
-    @NotEmpty(message = "URL cannot be empty." +
-            "")
+    @NotEmpty(message = "URL cannot be empty.")
     private String webUrl;
 
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -47,7 +49,6 @@ public class Commit {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -55,7 +56,6 @@ public class Commit {
     public String getMessage() {
         return message;
     }
-
     public void setMessage(String message) {
         this.message = message;
     }
@@ -63,7 +63,6 @@ public class Commit {
     public String getAuthorName() {
         return authorName;
     }
-
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
@@ -71,7 +70,6 @@ public class Commit {
     public String getAuthorEmail() {
         return authorEmail;
     }
-
     public void setAuthorEmail(String authorEmail) {
         this.authorEmail = authorEmail;
     }
@@ -79,7 +77,6 @@ public class Commit {
     public String getAuthoredDate() {
         return authoredDate;
     }
-
     public void setAuthoredDate(String authoredDate) {
         this.authoredDate = authoredDate;
     }
@@ -87,7 +84,6 @@ public class Commit {
     public String getWebUrl() {
         return webUrl;
     }
-
     public void setWebUrl(String webUrl) {
         this.webUrl = webUrl;
     }

@@ -16,6 +16,7 @@ public class Comment {
     @Id
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("body")
     @NotEmpty(message = "The message cannot be empty.")
     @Column(columnDefinition="TEXT")
@@ -29,13 +30,13 @@ public class Comment {
     @JsonProperty("created_at")
     @NotEmpty(message = "The field created_at cannot be empty.")
     private String createdAt;
+
     @JsonProperty("updated_at")
     private String updatedAt;
 
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -43,7 +44,6 @@ public class Comment {
     public String getBody() {
         return body;
     }
-
     public void setBody(String body) {
         this.body = body;
     }
@@ -51,7 +51,6 @@ public class Comment {
     public User getAuthor() {
         return author;
     }
-
     public void setAuthor(User author) {
         this.author = author;
     }
@@ -59,7 +58,6 @@ public class Comment {
     public String getCreatedAt() {
         return createdAt;
     }
-
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
@@ -67,7 +65,6 @@ public class Comment {
     public String getUpdatedAt() {
         return updatedAt;
     }
-
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }

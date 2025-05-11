@@ -11,19 +11,22 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "GMUser")     // Watch out: User is a reserved keyword in H2
+@Table(name = "GMUser")
 public class User {
 
     @Id
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("username")
-    //@NotEmpty(message = "The username cannot be empty")
     private String username;
+
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("avatar_url")
     private String avatarUrl;
+
     @JsonProperty("web_url")
     private String webUrl;
 
@@ -32,7 +35,6 @@ public class User {
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -40,7 +42,6 @@ public class User {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -48,7 +49,6 @@ public class User {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -56,7 +56,6 @@ public class User {
     public String getAvatarUrl() {
         return avatarUrl;
     }
-
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
@@ -64,7 +63,6 @@ public class User {
     public String getWebUrl() {
         return webUrl;
     }
-
     public void setWebUrl(String webUrl) {
         this.webUrl = webUrl;
     }

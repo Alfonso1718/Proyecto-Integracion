@@ -22,9 +22,6 @@ public class ProjectController {
     private ProjectRepository projectRepository;
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     public ProjectController(ProjectRepository projectRepository) { this.projectRepository = projectRepository; }
 
     @GetMapping
@@ -40,7 +37,6 @@ public class ProjectController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Project createProject(@RequestBody @Valid Project project) {
-
         return projectRepository.save(project);
     }
 
