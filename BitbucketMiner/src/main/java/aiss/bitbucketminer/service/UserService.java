@@ -56,8 +56,10 @@ public class UserService {
                 throw new RuntimeException("El usuario recibido es null para UUID: " + userId);
             }
 
+            String idUser = user.getUuid().substring(1, user.getUuid().length() - 1);
+
             return new GitminerUser(
-                    user.getUuid(),
+                    idUser,
                     user.getDisplayName(),
                     user.getDisplayName(),
                     "email no disponible",

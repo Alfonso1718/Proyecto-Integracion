@@ -104,10 +104,7 @@ public class IssueService {
         User assignee = bitbucketIssue.getAssignee();
         User reporter = bitbucketIssue.getReporter();
 
-        // Test Label
-        Long id = 7777L;
-        Label l = new Label(id, "Nombre", "ff22", "prueba");
-        List<Label> lb = new ArrayList<>();
+        List<Label> lb = new ArrayList<>(); // No hay labels de bitbucket
 
 
         GitminerIssue issue = new GitminerIssue(
