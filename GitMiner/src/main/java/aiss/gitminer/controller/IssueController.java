@@ -2,7 +2,6 @@ package aiss.gitminer.controller;
 
 import aiss.gitminer.model.Issue;
 import aiss.gitminer.repository.IssueRepository;
-import aiss.gitminer.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,18 +17,20 @@ public class IssueController {
     public IssueController(IssueRepository issueRepository) { this.issueRepository = issueRepository; }
 
     @GetMapping
-    public List<Issue> getIssueByAuthor(@RequestParam(value = "author", required = false) String author,
+    public List<Issue> getIssueByAuthor(@RequestParam(value = "authorId", required = false) String authorId,
                                         @RequestParam(value = "state", required = false) String state) {
 
-        List<Issue> issues = issueRepository.findAll();
 
-        if (author != null) {
-            issues.stream().filter(i -> i.getAuthor().equals(author)).toList();
+
+        if (authorId != null) {
+            return issueRepository.findAll().stream().filter(i -> i.getAuthor().getId().equals(authorId)).toList();
         } else if (state != null) {
-            issues.stream().filter(i -> i.getState().equals(state)).toList();
+            return issueRepository.findAll().stream().filter(i -> i.getState().equals(state)).toList();
+        } else {
+            return issueRepository.findAll();
         }
 
-        return issues;
+
     }
 
     @GetMapping("/{id}")
