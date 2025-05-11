@@ -33,7 +33,7 @@ public class Issue {
     private String closedAt;
     @Transient
     @JsonProperty("labels")
-    private List<Label> labels;
+    private List<String> labels;
     @JsonProperty("author")
     //@NotEmpty(message = "The author of the issue cannot be empty")
     @JoinColumn(name = "author_id",referencedColumnName = "id")
@@ -106,11 +106,11 @@ public class Issue {
         this.closedAt = closedAt;
     }
 
-    public List<Label> getLabels() {
+    public List<String> getLabels() {
         return labels;
     }
 
-    public void setLabels(List<Label> labels) {
+    public void setLabels(List<String> labels) {
         this.labels = labels;
     }
 
