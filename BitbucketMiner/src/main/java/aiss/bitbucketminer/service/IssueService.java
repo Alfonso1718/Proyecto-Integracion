@@ -12,10 +12,13 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
+import java.awt.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Base64;
+import aiss.bitbucketminer.model.gitminer.Label;
 
 @Service
 public class IssueService {
@@ -101,6 +104,11 @@ public class IssueService {
         User assignee = bitbucketIssue.getAssignee();
         User reporter = bitbucketIssue.getReporter();
 
+        // Test Label
+        Long id = 7777L;
+        Label l = new Label(id, "Nombre", "ff22", "prueba");
+        List<Label> lb = new ArrayList<>();
+
 
         GitminerIssue issue = new GitminerIssue(
                 String.valueOf(bitbucketIssue.getId()),
@@ -110,7 +118,7 @@ public class IssueService {
                 bitbucketIssue.getCreatedOn(),
                 bitbucketIssue.getUpdatedOn(),
                 bitbucketIssue.getUpdatedOn(),
-                labels,
+                lb,
                 assignee != null ? userService.parseUser(bitbucketIssue.getAssignee().getUuid()) : null,
                 reporter != null ? userService.parseUser(bitbucketIssue.getReporter().getUuid()) : null,
                 bitbucketIssue.getVotes(),

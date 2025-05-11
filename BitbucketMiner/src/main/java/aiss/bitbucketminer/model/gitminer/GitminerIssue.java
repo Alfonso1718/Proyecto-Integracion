@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import aiss.bitbucketminer.model.gitminer.Label;
 import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GitminerIssue {
@@ -28,7 +29,7 @@ public class GitminerIssue {
     private String closedAt;
     @JsonProperty("labels")
     @ElementCollection
-    private List<String> labels;
+    private List<Label> labels;
     @JsonProperty("author")
     //@NotEmpty(message = "The author of the issue cannot be empty")
     @JoinColumn(name = "author_id",referencedColumnName = "id")
@@ -45,7 +46,7 @@ public class GitminerIssue {
     @JoinColumn(name = "issueId")
     private List<GitminerComment> comments;
 
-    public GitminerIssue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<String> labels, GitminerUser author, GitminerUser assignee, Integer votes, List<GitminerComment> comments) {
+    public GitminerIssue(String id, String title, String description, String state, String createdAt, String updatedAt, String closedAt, List<Label> labels, GitminerUser author, GitminerUser assignee, Integer votes, List<GitminerComment> comments) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -116,11 +117,11 @@ public class GitminerIssue {
         this.closedAt = closedAt;
     }
 
-    public List<String> getLabels() {
+    public List<Label> getLabels() {
         return labels;
     }
 
-    public void setLabels(List<String> labels) {
+    public void setLabels(List<Label> labels) {
         this.labels = labels;
     }
 

@@ -33,6 +33,16 @@ public class ProjectController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Project createProject(@RequestBody @Valid Project project) {
+
+        project.getIssues().stream().forEach(issue ->
+            {
+                String asigneeId = issue.getAssignee().getId();
+                if (asigneeId != null && asigneeId.length() > 2 && asigneeId.charAt(0) == '{') {
+                    issue.getAssignee().setId(asigneeId.substring(1, asigneeId.length() - 1));
+                }
+            }
+        );
+
         return projectRepository.save(project);
     }
 

@@ -31,9 +31,13 @@ public class Issue {
     private String updatedAt;
     @JsonProperty("closed_at")
     private String closedAt;
-    @Transient
+
+
     @JsonProperty("labels")
-    private List<String> labels;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "issueId")
+    private List<Label> labels;
+
     @JsonProperty("author")
     //@NotEmpty(message = "The author of the issue cannot be empty")
     @JoinColumn(name = "author_id",referencedColumnName = "id")
@@ -106,11 +110,11 @@ public class Issue {
         this.closedAt = closedAt;
     }
 
-    public List<String> getLabels() {
+    public List<Label> getLabels() {
         return labels;
     }
 
-    public void setLabels(List<String> labels) {
+    public void setLabels(List<Label> labels) {
         this.labels = labels;
     }
 

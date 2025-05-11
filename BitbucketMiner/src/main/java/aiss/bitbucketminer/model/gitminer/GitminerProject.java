@@ -10,16 +10,16 @@ public class GitminerProject {
 
     public String name;
 
-    public String webUrl;
+    public String web_url;
 
     private List<GitminerCommit> commits;
 
     private List<GitminerIssue> issues;
 
-    public GitminerProject(String id, String name, String webUrl) {
+    public GitminerProject(String id, String name, String web_url) {
         this.id = id;
         this.name = name;
-        this.webUrl = webUrl;
+        this.web_url = web_url;
         this.commits = new ArrayList<>();
         this.issues = new ArrayList<>();
     }
@@ -40,12 +40,12 @@ public class GitminerProject {
         this.name = name;
     }
 
-    public String getWebUrl() {
-        return webUrl;
+    public String getWeb_url() {
+        return web_url;
     }
 
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
+    public void setWeb_url(String web_url) {
+        this.web_url = web_url;
     }
 
     public List<GitminerCommit> getCommits() {
