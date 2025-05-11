@@ -73,7 +73,8 @@ public class IssueService {
         } catch (HttpClientErrorException | ResourceAccessException e) {
             throw e;
         } catch (Exception e) {
-            throw new RuntimeException("Error inesperado al obtener issues desde Bitbucket", e);
+            e.printStackTrace(); // imprime el error original en consola
+            throw new RuntimeException("Error inesperado al obtener issues desde Bitbucket: " + e.getMessage(), e);
         }
     }
 
@@ -96,9 +97,9 @@ public class IssueService {
             labels.add(bitbucketIssue.getComponent().getType());
 
         GitminerIssue issue = new GitminerIssue(
-                bitbucketIssue.getId().toString(),
+                String.valueOf(bitbucketIssue.getId()),
                 bitbucketIssue.getTitle(),
-                bitbucketIssue.getContent().toString(),
+                bitbucketIssue.getContent().getRaw(),
                 bitbucketIssue.getState(),
                 bitbucketIssue.getCreatedOn(),
                 bitbucketIssue.getUpdatedOn(),
