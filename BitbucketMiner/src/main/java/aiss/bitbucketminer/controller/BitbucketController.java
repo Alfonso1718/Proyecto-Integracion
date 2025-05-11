@@ -27,7 +27,7 @@ public class BitbucketController {
     @Value("${bitbucket.token}")
     private String token;
 
-    private final String gitminerUri = "http://localhost:8081/gitminer/projects";
+    private final String gitminerUri = "http://localhost:8080/gitminer/projects";
 
     // OPERACION GET
     @GetMapping("/{workspace}/{repo_slug}")
@@ -57,11 +57,14 @@ public class BitbucketController {
         HttpHeaders headers = createAuthHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<?> req = new HttpEntity<>(bitbucketProject, headers);
+        //HttpEntity<?> req = new HttpEntity<>(bitbucketProject, headers);
 
         // SEND TO GITMINER
-        ResponseEntity<GitminerProject> res = restTemplate.exchange(
-                gitminerUri, HttpMethod.POST, req, GitminerProject.class);
+        //ResponseEntity<GitminerProject> res = restTemplate.exchange(
+        //        gitminerUri, HttpMethod.POST, req, GitminerProject.class);
+
+        HttpEntity<GitminerProject> req = new HttpEntity<>(bitbucketProject, headers);
+        ResponseEntity<GitminerProject> res = restTemplate.exchange(gitminerUri, HttpMethod.POST, req, GitminerProject.class);
 
         return res.getBody();
     }
