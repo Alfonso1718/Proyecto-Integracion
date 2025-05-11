@@ -54,9 +54,9 @@ public class CommentService {
                     .collect(Collectors.toList());
 
         } catch (HttpClientErrorException | ResourceAccessException ex) {
-            throw ex; // será gestionado por el handler global
+            throw ex;
         } catch (Exception ex) {
-            throw ex; // también lo captura el handler genérico
+            throw ex;
         }
     }
 

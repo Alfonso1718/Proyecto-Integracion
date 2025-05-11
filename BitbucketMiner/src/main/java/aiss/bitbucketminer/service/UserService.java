@@ -32,8 +32,6 @@ public class UserService {
     private final String uri = "https://api.bitbucket.org/2.0/users/{uuid}";
 
     public GitminerUser parseUser(String userId) {
-        //String baseUri = uri + "{" + userId + "}";
-        //String baseUri = uri + userId;
         try {
             HttpHeaders headers = createAuthHeaders();
             HttpEntity<String> entity = new HttpEntity<>(headers);

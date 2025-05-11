@@ -29,7 +29,7 @@ public class BitbucketController {
 
     private final String gitminerUri = "http://localhost:8080/gitminer/projects";
 
-    // OPERACION GET
+
     @GetMapping("/{workspace}/{repo_slug}")
     public GitminerProject fetchRawProject(
             @PathVariable String workspace,
@@ -41,7 +41,7 @@ public class BitbucketController {
         return projectService.buildProject(workspace, repoSlug, nCommits, nIssues, maxPages);
     }
 
-    // OPERACION POST
+
     @PostMapping("/{workspace}/{repo_slug}")
     @ResponseStatus(HttpStatus.CREATED)
     public GitminerProject fetchTransformAndSend(
@@ -51,18 +51,12 @@ public class BitbucketController {
             @RequestParam(defaultValue = "5") int nIssues,
             @RequestParam(defaultValue = "2") int maxPages) {
 
-        // FETCH
+
         GitminerProject bitbucketProject = projectService.buildProject(workspace, repoSlug, nCommits, nIssues, maxPages);
 
-        // HEADERS con autenticación Basic
+
         HttpHeaders headers = createAuthHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
-        //HttpEntity<?> req = new HttpEntity<>(bitbucketProject, headers);
-
-        // SEND TO GITMINER
-        //ResponseEntity<GitminerProject> res = restTemplate.exchange(
-        //        gitminerUri, HttpMethod.POST, req, GitminerProject.class);
 
         HttpEntity<GitminerProject> req = new HttpEntity<>(bitbucketProject, headers);
         ResponseEntity<GitminerProject> res = restTemplate.exchange(gitminerUri, HttpMethod.POST, req, GitminerProject.class);
