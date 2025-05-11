@@ -31,6 +31,7 @@ public class CommentService {
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
+
     public List<GitminerComment> getComments(String workspace, String repoSlug, Integer githubIssueId) {
         String commentsUri = uri + workspace + "/" + repoSlug + "/issues/" + githubIssueId + "/comments";
 
@@ -79,6 +80,7 @@ public class CommentService {
         );
     }
 
+    // USUARIO AUXILIAR
     private GitminerUser mapUser() {
         return new GitminerUser(
             UUID.randomUUID().toString(),

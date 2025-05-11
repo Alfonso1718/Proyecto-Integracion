@@ -40,6 +40,7 @@ public class IssueService {
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
+
     public List<GitminerIssue> getIssues(String workspace, String repoSlug, int nIssues, int maxPages) {
         int size = (nIssues > 0) ? nIssues : 5;
         int pages = (maxPages > 0) ? maxPages : 2;
@@ -105,7 +106,6 @@ public class IssueService {
         User reporter = bitbucketIssue.getReporter();
 
         List<Label> lb = new ArrayList<>(); // No hay labels de bitbucket
-
 
         GitminerIssue issue = new GitminerIssue(
                 String.valueOf(bitbucketIssue.getId()),

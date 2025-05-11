@@ -5,16 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.*;
-import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "name",
-    "email",
-    "date"
-})
-@Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Author {
 

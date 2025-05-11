@@ -1,9 +1,7 @@
 
 package aiss.githubminer.model.gitminer;
 
-
 public class Comment {
-
 
     private String id;
     private String body;

@@ -3,15 +3,10 @@ package aiss.githubminer.model.gitminer;
 
 public class UserGitMiner {
 
-
     private String id;
-
     private String username;
-
     private String name;
-
     private String avatar_url;
-
     private String web_url;
 
     public UserGitMiner(String id, String login, String name, String avatar_url, String url) {

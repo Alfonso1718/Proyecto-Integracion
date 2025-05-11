@@ -31,12 +31,12 @@ public class UserService {
 
     private final String uri = "https://api.bitbucket.org/2.0/users/{uuid}";
 
+
     public GitminerUser parseUser(String userId) {
         try {
             HttpHeaders headers = createAuthHeaders();
             HttpEntity<String> entity = new HttpEntity<>(headers);
 
-            // Solution 1: Use a map to provide variable values
             Map<String, String> uriVariables = new HashMap<>();
             uriVariables.put("uuid", userId);
 

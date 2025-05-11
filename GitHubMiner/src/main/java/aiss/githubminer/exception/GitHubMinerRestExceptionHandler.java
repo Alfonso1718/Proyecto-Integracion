@@ -13,8 +13,6 @@ import java.util.Map;
 @ControllerAdvice
 public class GitHubMinerRestExceptionHandler {
 
-
-
         @ExceptionHandler(HttpClientErrorException.class)
         public ResponseEntity<Map<String, Object>> handleHttpClientError(HttpClientErrorException ex) {
             Map<String, Object> errorDetails = new HashMap<>();

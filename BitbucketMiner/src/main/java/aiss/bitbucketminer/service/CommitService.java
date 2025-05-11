@@ -30,6 +30,7 @@ public class CommitService {
 
     private final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
+
     public List<GitminerCommit> getCommits(String workspace, String repoSlug, int nCommits, int maxPages) {
         int size = (nCommits > 0) ? nCommits : 5;
         int pages = (maxPages > 0) ? maxPages : 2;

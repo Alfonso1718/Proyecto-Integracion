@@ -1,17 +1,16 @@
 package aiss.bitbucketminer.model.gitminer;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+//CLASE AUXILIAR PARA LAS ETIQUETAS
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Label {
 
     private Long id;
-
     private String name;
-
     private String color;
-
     private String description;
 
 

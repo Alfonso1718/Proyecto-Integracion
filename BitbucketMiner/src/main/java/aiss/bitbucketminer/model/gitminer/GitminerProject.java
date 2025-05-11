@@ -7,15 +7,12 @@ import java.util.List;
 public class GitminerProject {
 
     public String id;
-
     public String name;
-
     public String web_url;
-
     private List<GitminerCommit> commits;
-
     private List<GitminerIssue> issues;
 
+    // CONSTRUCTOR PARA PARSEO
     public GitminerProject(String id, String name, String web_url) {
         this.id = id;
         this.name = name;

@@ -5,26 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.*;
-import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "url",
-    "html_url",
-    "issue_url",
-    "id",
-    "node_id",
-    "user",
-    "created_at",
-    "updated_at",
-    "author_association",
-    "body",
-    "reactions",
-    "performed_via_github_app"
-})
-@Generated("jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CommentsGithubMiner {
 

@@ -33,6 +33,7 @@ public class ProjectService {
 
     public final String uri = "https://api.bitbucket.org/2.0/repositories/";
 
+
     public GitminerProject getEmptyProject(String workspace, String repoSlug) {
         String baseUri = uri + workspace + "/" + repoSlug;
 

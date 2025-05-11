@@ -31,6 +31,7 @@ public class GitminerCommit {
     private String webUrl;
 
 
+    // CONSTRUCTOR PARA PARSEO
     public GitminerCommit(String id, String title, String message,
                   String author_name, String author_email, String authored_date,
                   String web_url) {
@@ -42,7 +43,6 @@ public class GitminerCommit {
         this.authoredDate = authored_date;
         this.webUrl = web_url;
     }
-
 
     public String getId() {
         return id;

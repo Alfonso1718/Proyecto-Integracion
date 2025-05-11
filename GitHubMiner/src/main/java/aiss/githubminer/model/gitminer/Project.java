@@ -4,21 +4,12 @@ package aiss.githubminer.model.gitminer;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Project {
 
-
     public String id;
-
-
     public String name;
-
-
     public String web_url;
-
     private List<Commit> commits;
-
-
     private List<Issue> issues;
 
     public Project(String id, String name, String web_url) {

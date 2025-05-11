@@ -20,6 +20,7 @@ public class GitminerUser {
     @JsonProperty("web_url")
     private String webUrl;
 
+    // CONSTRUCTOR PARA PARSEO
     public GitminerUser (String id, String username, String name, String avatarUrl, String webUrl){
         this.id = id;
         this.username = username;

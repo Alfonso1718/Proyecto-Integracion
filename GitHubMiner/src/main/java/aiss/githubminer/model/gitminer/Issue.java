@@ -6,38 +6,19 @@ import aiss.githubminer.model.githubMiner.issues.Label;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Issue {
 
-
     private String id;
-
     private String title;
-
     private String description;
-
     private String state;
-
-
     private String created_at;
-
     private String updated_at;
-
     private String closed_at;
-
     private List<Label> labels;
-
-
     private UserGitMiner author;
-
-
     private UserGitMiner assignee;
-
-
     private Integer votes;
-
-
     private List<Comment> comments;
 
     public Issue(String id, String title, String description, String state, String created_at, String updated_at, String closed_at, List<Label> labels,
