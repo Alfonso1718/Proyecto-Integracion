@@ -43,6 +43,7 @@ public class BitbucketController {
 
     // OPERACION POST
     @PostMapping("/{workspace}/{repo_slug}")
+    @ResponseStatus(HttpStatus.CREATED)
     public GitminerProject fetchTransformAndSend(
             @PathVariable String workspace,
             @PathVariable("repo_slug") String repoSlug,

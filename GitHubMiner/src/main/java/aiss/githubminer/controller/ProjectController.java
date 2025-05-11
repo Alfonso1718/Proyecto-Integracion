@@ -25,6 +25,7 @@ public class ProjectController {
 
 
     @PostMapping("/{owner}/{repoName}")
+    @ResponseStatus(HttpStatus.CREATED)
     public Project sendProject(
             @PathVariable String owner,
             @PathVariable String repoName,
