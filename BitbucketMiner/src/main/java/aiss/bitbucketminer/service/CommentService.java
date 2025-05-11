@@ -3,6 +3,7 @@ package aiss.bitbucketminer.service;
 import aiss.bitbucketminer.model.bitbucketMiner.Comment.Comment;
 import aiss.bitbucketminer.model.bitbucketMiner.Comment.Values;
 import aiss.bitbucketminer.model.gitminer.GitminerComment;
+import aiss.bitbucketminer.model.gitminer.GitminerUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -48,6 +49,7 @@ public class CommentService {
             if (res == null) return new ArrayList<>();
 
             return res.getValues().stream()
+                    .filter(comment -> comment.getContent().getRaw() != null)
                     .map(this::mapComment)
                     .collect(Collectors.toList());
 
@@ -71,9 +73,19 @@ public class CommentService {
         return new GitminerComment(
                 bitbucketComment.getId().toString(),
                 bitbucketComment.getContent().getRaw(),
-                bitbucketComment.getUser(),
+                mapUser(),
                 bitbucketComment.getCreatedOn(),
                 bitbucketComment.getUpdatedOn()
+        );
+    }
+
+    private GitminerUser mapUser() {
+        return new GitminerUser(
+            UUID.randomUUID().toString(),
+            "user",
+            "username",
+            "",
+            ""
         );
     }
 }

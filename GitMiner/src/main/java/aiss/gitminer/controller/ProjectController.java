@@ -1,7 +1,10 @@
 package aiss.gitminer.controller;
 
+import aiss.gitminer.model.Issue;
 import aiss.gitminer.model.Project;
+import aiss.gitminer.model.User;
 import aiss.gitminer.repository.ProjectRepository;
+import aiss.gitminer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +13,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/gitminer/projects")
 public class ProjectController {
 
     private ProjectRepository projectRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Autowired
     public ProjectController(ProjectRepository projectRepository) { this.projectRepository = projectRepository; }

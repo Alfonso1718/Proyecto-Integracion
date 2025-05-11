@@ -20,7 +20,7 @@ public class GitminerComment {
     @JsonProperty("author")
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     @OneToOne(cascade= CascadeType.ALL)
-    private UserComment author;
+    private GitminerUser author;
 
     @JsonProperty("created_at")
     @NotEmpty(message = "The field created_at cannot be empty.")
@@ -28,7 +28,7 @@ public class GitminerComment {
     @JsonProperty("updated_at")
     private String updatedAt;
 
-    public GitminerComment(String id, String body, UserComment author, String createdAt, String updatedAt) {
+    public GitminerComment(String id, String body, GitminerUser author, String createdAt, String updatedAt) {
         this.id = id;
         this.author=author;
         this.body=body;
@@ -53,11 +53,11 @@ public class GitminerComment {
         this.body = body;
     }
 
-    public UserComment getAuthor() {
+    public GitminerUser getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserComment author) {
+    public void setAuthor(GitminerUser author) {
         this.author = author;
     }
 
